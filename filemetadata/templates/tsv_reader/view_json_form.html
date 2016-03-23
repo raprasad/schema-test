@@ -168,7 +168,8 @@ editor.on("change",  function() {
     */
     {% if schema_content %}
     try {
-        schema = JSON.parse(`{{ schema_content|safe }}`);
+        //schema = JSON.parse(`{{ schema_content|safe }}`);
+        schema = {{ schema_content|safe }};
     }
     catch(e) {
         console.log('invalid starting schema');

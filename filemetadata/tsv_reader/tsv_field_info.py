@@ -85,26 +85,103 @@ class MetadataLine(object):
         if controlled_vocab:
             msg('controlled_vocab: %s' % controlled_vocab)
 
+    """
+allowmultiples
+"pets": {
+      "type": "array",
+      "format": "table",
+      "title": "Pets",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "title": "Pet",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "cat",
+              "dog",
+              "bird",
+              "reptile",
+              "other"
+            ],
+            "default": "dog"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+    """
     def as_json_schema_property(self, as_json_string=False):
 
         val_dict = self.__dict__.copy()
         val_dict.pop('vocabinfo_list')
         val_dict['controlled_vocabulary'] =  self.get_vocab_values(as_list=True)
 
-
-        prop_dict = dict(title=self.title,\
+        if self.allowmultiples:
+            prop_dict = dict(title=self.title,\
+                        format="table",\
+                        type="array",\
+                        uniqueItems=True,\
                         description=self.description,\
-                        propertyOrder=self.displayOrder,\
-                        required=self.required,\
-                        #display_format=self.displayFormat\
-                        )
-        vocab_enum = self.get_vocab_values_only()
-        if vocab_enum:
-            prop_dict['enum'] = vocab_enum
+                        items=dict(
+                            type="object",\
+                            title=self.title,
+                                properties=dict(type=dict(title=self.title,\
+                                    #description=self.description,\
+                                    propertyOrder=self.displayOrder,\
+                                    required=self.required),\
+                                )
+                            #display_format=self.displayFormat\
+                        ))
+            vocab_enum = self.get_vocab_values_only()
+            if vocab_enum:
+                prop_dict['items']['properties']['type']['enum'] = vocab_enum
 
-        prop_type = self.get_json_schema_type()
-        if prop_type:
-            prop_dict.update(prop_type)
+            prop_type = self.get_json_schema_type()
+            if prop_type:
+                prop_dict['items']['properties']['type'].update(prop_type)
+            '''
+            "type": "array",
+            "format": "table",
+            "title": "Pets",
+            "uniqueItems": true,
+            "items": {
+              "type": "object",
+              "title": "Pet",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "cat",
+                    "dog",
+                    "bird",
+                    "reptile",
+                    "other"
+                  ],
+                  "default": "dog"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }'''
+
+        else:
+
+            prop_dict = dict(title=self.title,\
+                            description=self.description,\
+                            propertyOrder=self.displayOrder,\
+                            required=self.required,\
+                            #display_format=self.displayFormat\
+                            )
+            vocab_enum = self.get_vocab_values_only()
+            if vocab_enum:
+                prop_dict['enum'] = vocab_enum
+
+            prop_type = self.get_json_schema_type()
+            if prop_type:
+                prop_dict.update(prop_type)
 
         return prop_dict
 
@@ -138,3 +215,90 @@ class MetadataLine(object):
         if as_json_string:
             return json.dumps(val_dict, indent=4)
         return val_dict
+"""
+{
+  "title": "Person",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "First and Last name",
+      "minLength": 4,
+      "default": "Jeremy Dorn"
+    },
+    "age": {
+      "type": "integer",
+      "default": 25,
+      "minimum": 18,
+      "maximum": 99
+    },
+    "favorite_color": {
+      "type": "string",
+      "format": "color",
+      "title": "favorite color",
+      "default": "#ffa500"
+    },
+    "gender": {
+      "type": "string",
+      "enum": [
+        "male",
+        "female"
+      ]
+    },
+    "location": {
+      "type": "object",
+      "title": "Location",
+      "properties": {
+        "city": {
+          "type": "string",
+          "default": "San Francisco"
+        },
+        "state": {
+          "type": "string",
+          "default": "CA"
+        },
+        "citystate": {
+          "type": "string",
+          "description": "This is generated automatically from the previous two fields",
+          "template": ", ",
+          "watch": {
+            "city": "location.city",
+            "state": "location.state"
+          }
+        }
+      }
+    },
+    "pets": {
+      "type": "array",
+      "format": "table",
+      "title": "Pets",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "title": "Pet",
+        "properties": {
+      "type": {
+            "type": "string",
+            "enum": [
+              "cat",
+              "dog",
+              "bird",
+              "reptile",
+              "other"
+            ],
+            "default": "dog"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "default": [
+        {
+          "type": "dog",
+          "name": "Walter"
+        }
+      ]
+    }
+  }
+}"""

@@ -24,11 +24,23 @@
             "title": "Alternative Title"
         }, 
         "otherId": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "3", 
             "description": "Another unique identifier that identifies this Dataset (e.g., producer's or another repository's number).", 
-            "title": "Other ID"
+            "title": "Other ID", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "3", 
+                        "title": "Other ID"
+                    }
+                }, 
+                "title": "Other ID"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "otherIdAgency": {
             "type": "string", 
@@ -45,11 +57,23 @@
             "title": "Identifier"
         }, 
         "author": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "6", 
             "description": "The person(s), corporate body(ies), or agency(ies) responsible for creating the work.", 
-            "title": "Author"
+            "title": "Author", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "6", 
+                        "title": "Author"
+                    }
+                }, 
+                "title": "Author"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "authorName": {
             "type": "string", 
@@ -85,11 +109,23 @@
             "title": "Identifier"
         }, 
         "datasetContact": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "11", 
             "description": "The contact(s) for this Dataset.", 
-            "title": "Contact"
+            "title": "Contact", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "11", 
+                        "title": "Contact"
+                    }
+                }, 
+                "title": "Contact"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "datasetContactName": {
             "type": "string", 
@@ -113,11 +149,23 @@
             "title": "E-mail"
         }, 
         "dsDescription": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "15", 
             "description": "A summary describing the purpose, nature, and scope of the Dataset.", 
-            "title": "Description"
+            "title": "Description", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "15", 
+                        "title": "Description"
+                    }
+                }, 
+                "title": "Description"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "dsDescriptionValue": {
             "type": "string", 
@@ -135,34 +183,58 @@
             "type": "string"
         }, 
         "subject": {
-            "enum": [
-                "Agricultural Sciences", 
-                "Arts and Humanities", 
-                "Astronomy and Astrophysics", 
-                "Business and Management", 
-                "Chemistry", 
-                "Earth and Environmental Sciences", 
-                "Engineering", 
-                "Medicine, Health and Life Sciences", 
-                "Computer and Information Science", 
-                "Law", 
-                "Mathematical Sciences", 
-                "Physics", 
-                "Social Sciences", 
-                "Other"
-            ], 
-            "propertyOrder": "18", 
             "description": "Domain-specific Subject Categories that are topically relevant to the Dataset.", 
             "title": "Subject", 
-            "required": true, 
-            "type": "string"
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": true, 
+                        "propertyOrder": "18", 
+                        "enum": [
+                            "Agricultural Sciences", 
+                            "Arts and Humanities", 
+                            "Astronomy and Astrophysics", 
+                            "Business and Management", 
+                            "Chemistry", 
+                            "Earth and Environmental Sciences", 
+                            "Engineering", 
+                            "Medicine, Health and Life Sciences", 
+                            "Computer and Information Science", 
+                            "Law", 
+                            "Mathematical Sciences", 
+                            "Physics", 
+                            "Social Sciences", 
+                            "Other"
+                        ], 
+                        "title": "Subject"
+                    }
+                }, 
+                "title": "Subject"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "keyword": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "19", 
             "description": "Key terms that describe important aspects of the Dataset.", 
-            "title": "Keyword"
+            "title": "Keyword", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "19", 
+                        "title": "Keyword"
+                    }
+                }, 
+                "title": "Keyword"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "keywordValue": {
             "type": "string", 
@@ -187,11 +259,23 @@
             "type": "string"
         }, 
         "topicClassification": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "23", 
             "description": "The classification field indicates the broad important topic(s) and subjects that the data cover. Library of Congress subject terms may be used here.", 
-            "title": "Topic Classification"
+            "title": "Topic Classification", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "23", 
+                        "title": "Topic Classification"
+                    }
+                }, 
+                "title": "Topic Classification"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "topicClassValue": {
             "type": "string", 
@@ -216,11 +300,23 @@
             "type": "string"
         }, 
         "publication": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "27", 
             "description": "Publications that use the data from this Dataset.", 
-            "title": "Related Publication"
+            "title": "Related Publication", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "27", 
+                        "title": "Related Publication"
+                    }
+                }, 
+                "title": "Related Publication"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "publicationCitation": {
             "type": "string", 
@@ -278,205 +374,229 @@
             "title": "Notes"
         }, 
         "language": {
-            "enum": [
-                "Abkhaz", 
-                "Afar", 
-                "Afrikaans", 
-                "Akan", 
-                "Albanian", 
-                "Amharic", 
-                "Arabic", 
-                "Aragonese", 
-                "Armenian", 
-                "Assamese", 
-                "Avaric", 
-                "Avestan", 
-                "Aymara", 
-                "Azerbaijani", 
-                "Bambara", 
-                "Bashkir", 
-                "Basque", 
-                "Belarusian", 
-                "Bengali, Bangla", 
-                "Bihari", 
-                "Bislama", 
-                "Bosnian", 
-                "Breton", 
-                "Bulgarian", 
-                "Burmese", 
-                "Catalan,Valencian", 
-                "Chamorro", 
-                "Chechen", 
-                "Chichewa, Chewa, Nyanja", 
-                "Chinese", 
-                "Chuvash", 
-                "Cornish", 
-                "Corsican", 
-                "Cree", 
-                "Croatian", 
-                "Czech", 
-                "Danish", 
-                "Divehi, Dhivehi, Maldivian", 
-                "Dutch", 
-                "Dzongkha", 
-                "English", 
-                "Esperanto", 
-                "Estonian", 
-                "Ewe", 
-                "Faroese", 
-                "Fijian", 
-                "Finnish", 
-                "French", 
-                "Fula, Fulah, Pulaar, Pular", 
-                "Galician", 
-                "Georgian", 
-                "German", 
-                "Greek (modern)", 
-                "Guaran\u00ed", 
-                "Gujarati", 
-                "Haitian, Haitian Creole", 
-                "Hausa", 
-                "Hebrew (modern)", 
-                "Herero", 
-                "Hindi", 
-                "Hiri Motu", 
-                "Hungarian", 
-                "Interlingua", 
-                "Indonesian", 
-                "Interlingue", 
-                "Irish", 
-                "Igbo", 
-                "Inupiaq", 
-                "Ido", 
-                "Icelandic", 
-                "Italian", 
-                "Inuktitut", 
-                "Japanese", 
-                "Javanese", 
-                "Kalaallisut, Greenlandic", 
-                "Kannada", 
-                "Kanuri", 
-                "Kashmiri", 
-                "Kazakh", 
-                "Khmer", 
-                "Kikuyu, Gikuyu", 
-                "Kinyarwanda", 
-                "Kyrgyz", 
-                "Komi", 
-                "Kongo", 
-                "Korean", 
-                "Kurdish", 
-                "Kwanyama, Kuanyama", 
-                "Latin", 
-                "Luxembourgish, Letzeburgesch", 
-                "Ganda", 
-                "Limburgish, Limburgan, Limburger", 
-                "Lingala", 
-                "Lao", 
-                "Lithuanian", 
-                "Luba-Katanga", 
-                "Latvian", 
-                "Manx", 
-                "Macedonian", 
-                "Malagasy", 
-                "Malay", 
-                "Malayalam", 
-                "Maltese", 
-                "M\u0101ori", 
-                "Marathi (Mar\u0101\u1e6dh\u012b)", 
-                "Marshallese", 
-                "Mongolian", 
-                "Nauru", 
-                "Navajo, Navaho", 
-                "Northern Ndebele", 
-                "Nepali", 
-                "Ndonga", 
-                "Norwegian Bokm\u00e5l", 
-                "Norwegian Nynorsk", 
-                "Norwegian", 
-                "Nuosu", 
-                "Southern Ndebele", 
-                "Occitan", 
-                "Ojibwe, Ojibwa", 
-                "Old Church Slavonic,Church Slavonic,Old Bulgarian", 
-                "Oromo", 
-                "Oriya", 
-                "Ossetian, Ossetic", 
-                "Panjabi, Punjabi", 
-                "P\u0101li", 
-                "Persian (Farsi)", 
-                "Polish", 
-                "Pashto, Pushto", 
-                "Portuguese", 
-                "Quechua", 
-                "Romansh", 
-                "Kirundi", 
-                "Romanian", 
-                "Russian", 
-                "Sanskrit (Sa\u1e41sk\u1e5bta)", 
-                "Sardinian", 
-                "Sindhi", 
-                "Northern Sami", 
-                "Samoan", 
-                "Sango", 
-                "Serbian", 
-                "Scottish Gaelic, Gaelic", 
-                "Shona", 
-                "Sinhala, Sinhalese", 
-                "Slovak", 
-                "Slovene", 
-                "Somali", 
-                "Southern Sotho", 
-                "Spanish, Castilian", 
-                "Sundanese", 
-                "Swahili", 
-                "Swati", 
-                "Swedish", 
-                "Tamil", 
-                "Telugu", 
-                "Tajik", 
-                "Thai", 
-                "Tigrinya", 
-                "Tibetan Standard, Tibetan, Central", 
-                "Turkmen", 
-                "Tagalog", 
-                "Tswana", 
-                "Tonga (Tonga Islands)", 
-                "Turkish", 
-                "Tsonga", 
-                "Tatar", 
-                "Twi", 
-                "Tahitian", 
-                "Uyghur, Uighur", 
-                "Ukrainian", 
-                "Urdu", 
-                "Uzbek", 
-                "Venda", 
-                "Vietnamese", 
-                "Volap\u00fck", 
-                "Walloon", 
-                "Welsh", 
-                "Wolof", 
-                "Western Frisian", 
-                "Xhosa", 
-                "Yiddish", 
-                "Yoruba", 
-                "Zhuang, Chuang", 
-                "Zulu", 
-                "Not applicable"
-            ], 
-            "propertyOrder": "33", 
             "description": "Language of the Dataset", 
             "title": "Language", 
-            "required": false, 
-            "type": "string"
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "33", 
+                        "enum": [
+                            "Abkhaz", 
+                            "Afar", 
+                            "Afrikaans", 
+                            "Akan", 
+                            "Albanian", 
+                            "Amharic", 
+                            "Arabic", 
+                            "Aragonese", 
+                            "Armenian", 
+                            "Assamese", 
+                            "Avaric", 
+                            "Avestan", 
+                            "Aymara", 
+                            "Azerbaijani", 
+                            "Bambara", 
+                            "Bashkir", 
+                            "Basque", 
+                            "Belarusian", 
+                            "Bengali, Bangla", 
+                            "Bihari", 
+                            "Bislama", 
+                            "Bosnian", 
+                            "Breton", 
+                            "Bulgarian", 
+                            "Burmese", 
+                            "Catalan,Valencian", 
+                            "Chamorro", 
+                            "Chechen", 
+                            "Chichewa, Chewa, Nyanja", 
+                            "Chinese", 
+                            "Chuvash", 
+                            "Cornish", 
+                            "Corsican", 
+                            "Cree", 
+                            "Croatian", 
+                            "Czech", 
+                            "Danish", 
+                            "Divehi, Dhivehi, Maldivian", 
+                            "Dutch", 
+                            "Dzongkha", 
+                            "English", 
+                            "Esperanto", 
+                            "Estonian", 
+                            "Ewe", 
+                            "Faroese", 
+                            "Fijian", 
+                            "Finnish", 
+                            "French", 
+                            "Fula, Fulah, Pulaar, Pular", 
+                            "Galician", 
+                            "Georgian", 
+                            "German", 
+                            "Greek (modern)", 
+                            "Guaran\u00ed", 
+                            "Gujarati", 
+                            "Haitian, Haitian Creole", 
+                            "Hausa", 
+                            "Hebrew (modern)", 
+                            "Herero", 
+                            "Hindi", 
+                            "Hiri Motu", 
+                            "Hungarian", 
+                            "Interlingua", 
+                            "Indonesian", 
+                            "Interlingue", 
+                            "Irish", 
+                            "Igbo", 
+                            "Inupiaq", 
+                            "Ido", 
+                            "Icelandic", 
+                            "Italian", 
+                            "Inuktitut", 
+                            "Japanese", 
+                            "Javanese", 
+                            "Kalaallisut, Greenlandic", 
+                            "Kannada", 
+                            "Kanuri", 
+                            "Kashmiri", 
+                            "Kazakh", 
+                            "Khmer", 
+                            "Kikuyu, Gikuyu", 
+                            "Kinyarwanda", 
+                            "Kyrgyz", 
+                            "Komi", 
+                            "Kongo", 
+                            "Korean", 
+                            "Kurdish", 
+                            "Kwanyama, Kuanyama", 
+                            "Latin", 
+                            "Luxembourgish, Letzeburgesch", 
+                            "Ganda", 
+                            "Limburgish, Limburgan, Limburger", 
+                            "Lingala", 
+                            "Lao", 
+                            "Lithuanian", 
+                            "Luba-Katanga", 
+                            "Latvian", 
+                            "Manx", 
+                            "Macedonian", 
+                            "Malagasy", 
+                            "Malay", 
+                            "Malayalam", 
+                            "Maltese", 
+                            "M\u0101ori", 
+                            "Marathi (Mar\u0101\u1e6dh\u012b)", 
+                            "Marshallese", 
+                            "Mongolian", 
+                            "Nauru", 
+                            "Navajo, Navaho", 
+                            "Northern Ndebele", 
+                            "Nepali", 
+                            "Ndonga", 
+                            "Norwegian Bokm\u00e5l", 
+                            "Norwegian Nynorsk", 
+                            "Norwegian", 
+                            "Nuosu", 
+                            "Southern Ndebele", 
+                            "Occitan", 
+                            "Ojibwe, Ojibwa", 
+                            "Old Church Slavonic,Church Slavonic,Old Bulgarian", 
+                            "Oromo", 
+                            "Oriya", 
+                            "Ossetian, Ossetic", 
+                            "Panjabi, Punjabi", 
+                            "P\u0101li", 
+                            "Persian (Farsi)", 
+                            "Polish", 
+                            "Pashto, Pushto", 
+                            "Portuguese", 
+                            "Quechua", 
+                            "Romansh", 
+                            "Kirundi", 
+                            "Romanian", 
+                            "Russian", 
+                            "Sanskrit (Sa\u1e41sk\u1e5bta)", 
+                            "Sardinian", 
+                            "Sindhi", 
+                            "Northern Sami", 
+                            "Samoan", 
+                            "Sango", 
+                            "Serbian", 
+                            "Scottish Gaelic, Gaelic", 
+                            "Shona", 
+                            "Sinhala, Sinhalese", 
+                            "Slovak", 
+                            "Slovene", 
+                            "Somali", 
+                            "Southern Sotho", 
+                            "Spanish, Castilian", 
+                            "Sundanese", 
+                            "Swahili", 
+                            "Swati", 
+                            "Swedish", 
+                            "Tamil", 
+                            "Telugu", 
+                            "Tajik", 
+                            "Thai", 
+                            "Tigrinya", 
+                            "Tibetan Standard, Tibetan, Central", 
+                            "Turkmen", 
+                            "Tagalog", 
+                            "Tswana", 
+                            "Tonga (Tonga Islands)", 
+                            "Turkish", 
+                            "Tsonga", 
+                            "Tatar", 
+                            "Twi", 
+                            "Tahitian", 
+                            "Uyghur, Uighur", 
+                            "Ukrainian", 
+                            "Urdu", 
+                            "Uzbek", 
+                            "Venda", 
+                            "Vietnamese", 
+                            "Volap\u00fck", 
+                            "Walloon", 
+                            "Welsh", 
+                            "Wolof", 
+                            "Western Frisian", 
+                            "Xhosa", 
+                            "Yiddish", 
+                            "Yoruba", 
+                            "Zhuang, Chuang", 
+                            "Zulu", 
+                            "Not applicable"
+                        ], 
+                        "title": "Language"
+                    }
+                }, 
+                "title": "Language"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "producer": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "34", 
             "description": "Person or organization with the financial or administrative responsibility over this Dataset", 
-            "title": "Producer"
+            "title": "Producer", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "34", 
+                        "title": "Producer"
+                    }
+                }, 
+                "title": "Producer"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "producerName": {
             "type": "string", 
@@ -531,11 +651,23 @@
             "title": "Production Place"
         }, 
         "contributor": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "42", 
             "description": "The organization or person responsible for either collecting, managing, or otherwise contributing in some form to the development of the resource.", 
-            "title": "Contributor"
+            "title": "Contributor", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "42", 
+                        "title": "Contributor"
+                    }
+                }, 
+                "title": "Contributor"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "contributorType": {
             "enum": [
@@ -571,11 +703,23 @@
             "title": "Name"
         }, 
         "grantNumber": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "45", 
             "description": "Grant Information", 
-            "title": "Grant Information"
+            "title": "Grant Information", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "45", 
+                        "title": "Grant Information"
+                    }
+                }, 
+                "title": "Grant Information"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "grantNumberAgency": {
             "type": "string", 
@@ -592,11 +736,23 @@
             "title": "Grant Number"
         }, 
         "distributor": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "48", 
             "description": "The organization designated by the author or producer to generate copies of the particular work including any necessary editions or revisions.", 
-            "title": "Distributor"
+            "title": "Distributor", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "48", 
+                        "title": "Distributor"
+                    }
+                }, 
+                "title": "Distributor"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "distributorName": {
             "type": "string", 
@@ -659,11 +815,23 @@
             "type": "string"
         }, 
         "timePeriodCovered": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "57", 
             "description": "Time period to which the data refer. This item reflects the time period covered by the data, not the dates of coding or making documents machine-readable or the dates the data were collected. Also known as span.", 
-            "title": "Time Period Covered"
+            "title": "Time Period Covered", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "57", 
+                        "title": "Time Period Covered"
+                    }
+                }, 
+                "title": "Time Period Covered"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "timePeriodCoveredStart": {
             "propertyOrder": "58", 
@@ -682,11 +850,23 @@
             "type": "string"
         }, 
         "dateOfCollection": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "60", 
             "description": "Contains the date(s) when the data were collected.", 
-            "title": "Date of Collection"
+            "title": "Date of Collection", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "60", 
+                        "title": "Date of Collection"
+                    }
+                }, 
+                "title": "Date of Collection"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "dateOfCollectionStart": {
             "propertyOrder": "61", 
@@ -705,11 +885,23 @@
             "type": "string"
         }, 
         "kindOfData": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "63", 
             "description": "Type of data included in the file: survey data, census/enumeration data, aggregate data, clinical data, event/transaction data, program source code, machine-readable text, administrative records data, experimental data, psychological test, textual data, coded textual, coded documents, time budget diaries, observation data/ratings, process-produced data, or other.", 
-            "title": "Kind of Data"
+            "title": "Kind of Data", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "63", 
+                        "title": "Kind of Data"
+                    }
+                }, 
+                "title": "Kind of Data"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "series": {
             "type": "string", 
@@ -733,11 +925,23 @@
             "title": "Information"
         }, 
         "software": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "67", 
             "description": "Information about the software used to generate the Dataset.", 
-            "title": "Software"
+            "title": "Software", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "67", 
+                        "title": "Software"
+                    }
+                }, 
+                "title": "Software"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "softwareName": {
             "type": "string", 
@@ -754,32 +958,80 @@
             "title": "Version"
         }, 
         "relatedMaterial": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "70", 
             "description": "Any material related to this Dataset.", 
-            "title": "Related Material"
+            "title": "Related Material", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "70", 
+                        "title": "Related Material"
+                    }
+                }, 
+                "title": "Related Material"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "relatedDatasets": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "71", 
             "description": "Any Datasets that are related to this Dataset, such as previous research on this subject.", 
-            "title": "Related Datasets"
+            "title": "Related Datasets", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "71", 
+                        "title": "Related Datasets"
+                    }
+                }, 
+                "title": "Related Datasets"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "otherReferences": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "72", 
             "description": "Any references that would serve as background or supporting material to this Dataset.", 
-            "title": "Other References"
+            "title": "Other References", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "72", 
+                        "title": "Other References"
+                    }
+                }, 
+                "title": "Other References"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "dataSources": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "73", 
             "description": "List of books, articles, serials, or machine-readable data files that served as the sources of the data collection.", 
-            "title": "Data Sources"
+            "title": "Data Sources", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "73", 
+                        "title": "Data Sources"
+                    }
+                }, 
+                "title": "Data Sources"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "originOfSources": {
             "type": "string", 

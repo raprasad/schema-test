@@ -3,170 +3,266 @@
     "type": "object", 
     "properties": {
         "psiBehavior": {
-            "enum": [
-                "Abstinence", 
-                "Birth spacing", 
-                "Cervical cancer screening", 
-                "Condom use", 
-                "FGM", 
-                "HIV risk behaviors", 
-                "HIV/STI testing", 
-                "LLIN use", 
-                "Male circumcision", 
-                "Modern contraceptive use", 
-                "ORS use", 
-                "Partner reduction", 
-                "Referral uptake", 
-                "Treatment adherence", 
-                "Water treatment"
-            ], 
-            "propertyOrder": "0", 
             "description": "Behavior", 
             "title": "Behavior", 
-            "required": false, 
-            "type": "string"
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "0", 
+                        "enum": [
+                            "Abstinence", 
+                            "Birth spacing", 
+                            "Cervical cancer screening", 
+                            "Condom use", 
+                            "FGM", 
+                            "HIV risk behaviors", 
+                            "HIV/STI testing", 
+                            "LLIN use", 
+                            "Male circumcision", 
+                            "Modern contraceptive use", 
+                            "ORS use", 
+                            "Partner reduction", 
+                            "Referral uptake", 
+                            "Treatment adherence", 
+                            "Water treatment"
+                        ], 
+                        "title": "Behavior"
+                    }
+                }, 
+                "title": "Behavior"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "psiDonor": {
-            "enum": [
-                "CDC", 
-                "DFID", 
-                "Dutch", 
-                "Gates Foundation", 
-                "Global Fund", 
-                "KfW", 
-                "LAD", 
-                "Other", 
-                "PEPFAR", 
-                "UNFPA", 
-                "USAID"
-            ], 
-            "propertyOrder": "1", 
             "description": "Donor", 
             "title": "Donor", 
-            "required": false, 
-            "type": "string"
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "1", 
+                        "enum": [
+                            "CDC", 
+                            "DFID", 
+                            "Dutch", 
+                            "Gates Foundation", 
+                            "Global Fund", 
+                            "KfW", 
+                            "LAD", 
+                            "Other", 
+                            "PEPFAR", 
+                            "UNFPA", 
+                            "USAID"
+                        ], 
+                        "title": "Donor"
+                    }
+                }, 
+                "title": "Donor"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "psiHealthArea": {
-            "enum": [
-                "Diarrhea", 
-                "GBV", 
-                "HIV", 
-                "ICM", 
-                "Malaria", 
-                "NCDs", 
-                "Nutrition", 
-                "Pneumonia", 
-                "Reproductive health", 
-                "TB"
-            ], 
-            "propertyOrder": "2", 
             "description": "Health Area", 
             "title": "Health Area", 
-            "required": false, 
-            "type": "string"
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "2", 
+                        "enum": [
+                            "Diarrhea", 
+                            "GBV", 
+                            "HIV", 
+                            "ICM", 
+                            "Malaria", 
+                            "NCDs", 
+                            "Nutrition", 
+                            "Pneumonia", 
+                            "Reproductive health", 
+                            "TB"
+                        ], 
+                        "title": "Health Area"
+                    }
+                }, 
+                "title": "Health Area"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "psiIntervention": {
-            "enum": [
-                "BCC", 
-                "IPC", 
-                "Medical detailing", 
-                "mHealth", 
-                "Provider training", 
-                "Social franchising"
-            ], 
-            "propertyOrder": "3", 
             "description": "Intervention", 
             "title": "Intervention", 
-            "required": false, 
-            "type": "string"
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "3", 
+                        "enum": [
+                            "BCC", 
+                            "IPC", 
+                            "Medical detailing", 
+                            "mHealth", 
+                            "Provider training", 
+                            "Social franchising"
+                        ], 
+                        "title": "Intervention"
+                    }
+                }, 
+                "title": "Intervention"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "psiPopulation": {
-            "enum": [
-                "Caregivers", 
-                "Couples", 
-                "FSW", 
-                "General population", 
-                "IDUs", 
-                "MARPs", 
-                "Men", 
-                "MSM", 
-                "PLHIV", 
-                "Providers", 
-                "Truck drivers", 
-                "Women", 
-                "WRA", 
-                "Youth"
-            ], 
-            "propertyOrder": "4", 
             "description": "Population", 
             "title": "Population", 
-            "required": false, 
-            "type": "string"
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "4", 
+                        "enum": [
+                            "Caregivers", 
+                            "Couples", 
+                            "FSW", 
+                            "General population", 
+                            "IDUs", 
+                            "MARPs", 
+                            "Men", 
+                            "MSM", 
+                            "PLHIV", 
+                            "Providers", 
+                            "Truck drivers", 
+                            "Women", 
+                            "WRA", 
+                            "Youth"
+                        ], 
+                        "title": "Population"
+                    }
+                }, 
+                "title": "Population"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "psiProductsServices": {
-            "enum": [
-                "ACT", 
-                "ANC", 
-                "Antibiotics", 
-                "ART", 
-                "Clean delivery kit", 
-                "Condoms", 
-                "Household water treatment", 
-                "HTC", 
-                "LLIN", 
-                "Long-term Methods", 
-                "Medicated Abortion", 
-                "Misoprostol", 
-                "Multivitamin", 
-                "Needle and syringe", 
-                "Nevirapine", 
-                "ORS", 
-                "PMTCT", 
-                "Short-term methods", 
-                "STI kit", 
-                "TB DOTS", 
-                "VMC", 
-                "Zinc"
-            ], 
-            "propertyOrder": "5", 
             "description": "Products/Services", 
             "title": "Products/Services", 
-            "required": false, 
-            "type": "string"
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "5", 
+                        "enum": [
+                            "ACT", 
+                            "ANC", 
+                            "Antibiotics", 
+                            "ART", 
+                            "Clean delivery kit", 
+                            "Condoms", 
+                            "Household water treatment", 
+                            "HTC", 
+                            "LLIN", 
+                            "Long-term Methods", 
+                            "Medicated Abortion", 
+                            "Misoprostol", 
+                            "Multivitamin", 
+                            "Needle and syringe", 
+                            "Nevirapine", 
+                            "ORS", 
+                            "PMTCT", 
+                            "Short-term methods", 
+                            "STI kit", 
+                            "TB DOTS", 
+                            "VMC", 
+                            "Zinc"
+                        ], 
+                        "title": "Products/Services"
+                    }
+                }, 
+                "title": "Products/Services"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "psiStudyDesignElement": {
-            "enum": [
-                "CEM", 
-                "Client exit interview", 
-                "Control group", 
-                "Cross-sectional", 
-                "Focus group", 
-                "In-depth interview", 
-                "Longitudinal", 
-                "LQAS", 
-                "Mystery client", 
-                "Pretesting", 
-                "TRaC"
-            ], 
-            "propertyOrder": "6", 
             "description": "Study Design Element", 
             "title": "Study Design Element", 
-            "required": false, 
-            "type": "string"
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "6", 
+                        "enum": [
+                            "CEM", 
+                            "Client exit interview", 
+                            "Control group", 
+                            "Cross-sectional", 
+                            "Focus group", 
+                            "In-depth interview", 
+                            "Longitudinal", 
+                            "LQAS", 
+                            "Mystery client", 
+                            "Pretesting", 
+                            "TRaC"
+                        ], 
+                        "title": "Study Design Element"
+                    }
+                }, 
+                "title": "Study Design Element"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "psiStudyType": {
-            "enum": [
-                "MAP", 
-                "Mixed Methods", 
-                "Qualitative", 
-                "Quantitative", 
-                "Retail audit"
-            ], 
-            "propertyOrder": "7", 
             "description": "Study Type", 
             "title": "Study Type", 
-            "required": false, 
-            "type": "string"
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "7", 
+                        "enum": [
+                            "MAP", 
+                            "Mixed Methods", 
+                            "Qualitative", 
+                            "Quantitative", 
+                            "Retail audit"
+                        ], 
+                        "title": "Study Type"
+                    }
+                }, 
+                "title": "Study Type"
+            }, 
+            "format": "table", 
+            "type": "array"
         }
     }
 }

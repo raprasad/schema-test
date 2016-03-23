@@ -79,7 +79,7 @@ class MetadataReader(object):
         #
         field_ordered_dict = OrderedDict()
         for field_info in self.field_info_list:
-            if 1:#field_info.name == 'subject':
+            if 1: #field_info.name == 'subject':
                 field_ordered_dict[field_info.name] =\
                     field_info.as_json_schema_property()
                 #field_list.append(field_info.as_json_schema_property())
@@ -206,13 +206,11 @@ if __name__ == '__main__':
         mr.read_metadata()
         mr.show()
 
-    #tsv_name = 'tsv_files/citation.tsv'
+    tsv_name = 'tsv_files/citation.tsv'
     #tsv_name = 'tsv_files/biomedical.tsv'
-
-
-    #mr = MetadataReader(tsv_name)
-    #mr.read_metadata()
-    #mr.show()
+    mr = MetadataReader(tsv_name)
+    mr.read_metadata()
+    mr.show()
     """
     for test_line in test_lines:
         ml = MetadataLine(test_line)

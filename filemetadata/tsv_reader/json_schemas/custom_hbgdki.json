@@ -10,11 +10,23 @@
             "title": "Name of Study"
         }, 
         "hbgdkiStudyRegistry": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "1", 
             "description": "Which study registry was used?", 
-            "title": "Study Registry"
+            "title": "Study Registry", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "1", 
+                        "title": "Study Registry"
+                    }
+                }, 
+                "title": "Study Registry"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "hbgdkiStudyRegistryType": {
             "enum": [
@@ -50,19 +62,31 @@
             "title": "ID Number"
         }, 
         "hbgdkiStudyType": {
-            "enum": [
-                "Interventional", 
-                "Observational", 
-                "Case Control", 
-                "Meta-analysis", 
-                "Demographic & Health Survey", 
-                "Other Survey"
-            ], 
-            "propertyOrder": "4", 
             "description": "Type of study.", 
             "title": "Type of study", 
-            "required": false, 
-            "type": "string"
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "4", 
+                        "enum": [
+                            "Interventional", 
+                            "Observational", 
+                            "Case Control", 
+                            "Meta-analysis", 
+                            "Demographic & Health Survey", 
+                            "Other Survey"
+                        ], 
+                        "title": "Type of study"
+                    }
+                }, 
+                "title": "Type of study"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "hbgdkiIntervention": {
             "type": "string", 
@@ -107,11 +131,23 @@
             "title": "Other entry criteria"
         }, 
         "hbgdkiBiosampleType": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "11", 
             "description": "Types of biosamples used (e.g., Blood, Stool,...).", 
-            "title": "Types of biosamples collected, if any"
+            "title": "Types of biosamples collected, if any", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "11", 
+                        "title": "Types of biosamples collected, if any"
+                    }
+                }, 
+                "title": "Types of biosamples collected, if any"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "hbgdkiGestationalAge": {
             "enum": [

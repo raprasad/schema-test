@@ -3,11 +3,23 @@
     "type": "object", 
     "properties": {
         "geographicCoverage": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "0", 
             "description": "Information on the geographic coverage of the data. Includes the total geographic scope of the data.", 
-            "title": "Geographic Coverage"
+            "title": "Geographic Coverage", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "0", 
+                        "title": "Geographic Coverage"
+                    }
+                }, 
+                "title": "Geographic Coverage"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "country": {
             "enum": [
@@ -289,18 +301,42 @@
             "title": "Other"
         }, 
         "geographicUnit": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "5", 
             "description": "Lowest level of geographic aggregation covered by the Dataset, e.g., village, county, region.", 
-            "title": "Geographic Unit"
+            "title": "Geographic Unit", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "5", 
+                        "title": "Geographic Unit"
+                    }
+                }, 
+                "title": "Geographic Unit"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "geographicBoundingBox": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "6", 
             "description": "The fundamental geometric description for any Dataset that models geography is the geographic bounding box. It describes the minimum box, defined by west and east longitudes and north and south latitudes, which includes the largest geographic extent of the  Dataset's geographic coverage. This element is used in the first pass of a coordinate-based search. Inclusion of this element in the codebook is recommended, but is required if the bound polygon box is included.", 
-            "title": "Geographic Bounding Box"
+            "title": "Geographic Bounding Box", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "6", 
+                        "title": "Geographic Bounding Box"
+                    }
+                }, 
+                "title": "Geographic Bounding Box"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "westLongitude": {
             "type": "string", 

@@ -3,58 +3,106 @@
     "type": "object", 
     "properties": {
         "astroType": {
-            "enum": [
-                "Image", 
-                "Mosaic", 
-                "EventList", 
-                "Spectrum", 
-                "Cube", 
-                "Table", 
-                "Catalog", 
-                "LightCurve", 
-                "Simulation", 
-                "Figure", 
-                "Artwork", 
-                "Animation", 
-                "PrettyPicture", 
-                "Documentation", 
-                "Other", 
-                "Library", 
-                "Press Release", 
-                "Facsimile", 
-                "Historical", 
-                "Observation", 
-                "Object", 
-                "Value", 
-                "ValuePair", 
-                "Survey"
-            ], 
-            "propertyOrder": "0", 
             "description": "The nature or genre of the content of the files in the dataset.", 
             "title": "Type", 
-            "required": false, 
-            "type": "string"
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "0", 
+                        "enum": [
+                            "Image", 
+                            "Mosaic", 
+                            "EventList", 
+                            "Spectrum", 
+                            "Cube", 
+                            "Table", 
+                            "Catalog", 
+                            "LightCurve", 
+                            "Simulation", 
+                            "Figure", 
+                            "Artwork", 
+                            "Animation", 
+                            "PrettyPicture", 
+                            "Documentation", 
+                            "Other", 
+                            "Library", 
+                            "Press Release", 
+                            "Facsimile", 
+                            "Historical", 
+                            "Observation", 
+                            "Object", 
+                            "Value", 
+                            "ValuePair", 
+                            "Survey"
+                        ], 
+                        "title": "Type"
+                    }
+                }, 
+                "title": "Type"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "astroFacility": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "1", 
             "description": "The observatory or facility where the data was obtained.", 
-            "title": "Facility"
+            "title": "Facility", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "1", 
+                        "title": "Facility"
+                    }
+                }, 
+                "title": "Facility"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "astroInstrument": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "2", 
             "description": "The instrument used to collect the data.", 
-            "title": "Instrument"
+            "title": "Instrument", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "2", 
+                        "title": "Instrument"
+                    }
+                }, 
+                "title": "Instrument"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "astroObject": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "3", 
             "description": "Astronomical Objects represented in the data (Given as SIMBAD recognizable names preferred).", 
-            "title": "Object"
+            "title": "Object", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "3", 
+                        "title": "Object"
+                    }
+                }, 
+                "title": "Object"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "resolution.Spatial": {
             "type": "string", 
@@ -78,25 +126,61 @@
             "title": "Time Resolution"
         }, 
         "coverage.Spectral.Bandpass": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "7", 
             "description": "Conventional bandpass name", 
-            "title": "Bandpass"
+            "title": "Bandpass", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "7", 
+                        "title": "Bandpass"
+                    }
+                }, 
+                "title": "Bandpass"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "coverage.Spectral.CentralWavelength": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "8", 
             "description": "The central wavelength of the spectral bandpass, in meters.", 
-            "title": "Central Wavelength (m)"
+            "title": "Central Wavelength (m)", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "8", 
+                        "title": "Central Wavelength (m)"
+                    }
+                }, 
+                "title": "Central Wavelength (m)"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "coverage.Spectral.Wavelength": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "9", 
             "description": "The minimum and maximum wavelength of the spectral bandpass.", 
-            "title": "Wavelength Range"
+            "title": "Wavelength Range", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "9", 
+                        "title": "Wavelength Range"
+                    }
+                }, 
+                "title": "Wavelength Range"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "coverage.Spectral.MinimumWavelength": {
             "type": "string", 
@@ -113,11 +197,23 @@
             "title": "Maximum (m)"
         }, 
         "coverage.Temporal": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "12", 
             "description": "Time period covered by the data.", 
-            "title": "Dataset Date Range"
+            "title": "Dataset Date Range", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "12", 
+                        "title": "Dataset Date Range"
+                    }
+                }, 
+                "title": "Dataset Date Range"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "coverage.Temporal.StartTime": {
             "propertyOrder": "13", 
@@ -136,11 +232,23 @@
             "type": "string"
         }, 
         "coverage.Spatial": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "15", 
             "description": "The sky coverage of the data object.", 
-            "title": "Sky Coverage"
+            "title": "Sky Coverage", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "15", 
+                        "title": "Sky Coverage"
+                    }
+                }, 
+                "title": "Sky Coverage"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "coverage.Depth": {
             "type": "string", 
@@ -192,11 +300,23 @@
             "title": "Redshift Resolution"
         }, 
         "coverage.RedshiftValue": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "23", 
             "description": "The value of the redshift (unitless) or Doppler velocity (km/s in the data object.", 
-            "title": "Redshift Value"
+            "title": "Redshift Value", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "23", 
+                        "title": "Redshift Value"
+                    }
+                }, 
+                "title": "Redshift Value"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "coverage.Redshift.MinimumValue": {
             "type": "string", 

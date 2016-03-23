@@ -3,11 +3,23 @@
     "type": "object", 
     "properties": {
         "journalVolumeIssue": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "0", 
             "description": "Indicates the volume, issue and date of a journal, which this Dataset is associated with.", 
-            "title": "Journal"
+            "title": "Journal", 
+            "uniqueItems": true, 
+            "items": {
+                "type": "object", 
+                "properties": {
+                    "type": {
+                        "type": "string", 
+                        "required": false, 
+                        "propertyOrder": "0", 
+                        "title": "Journal"
+                    }
+                }, 
+                "title": "Journal"
+            }, 
+            "format": "table", 
+            "type": "array"
         }, 
         "journalVolume": {
             "type": "string", 
