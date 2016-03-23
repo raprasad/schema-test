@@ -1,0 +1,124 @@
+{
+    "title": "customPSRI", 
+    "type": "object", 
+    "properties": {
+        "PSRI1": {
+            "enum": [
+                "No", 
+                "Yes"
+            ], 
+            "propertyOrder": "0", 
+            "description": "Select from the list of options.", 
+            "title": "Are the original data publicly available?", 
+            "required": false, 
+            "type": "string"
+        }, 
+        "PSRI2": {
+            "enum": [
+                "No", 
+                "Yes", 
+                "NA"
+            ], 
+            "propertyOrder": "1", 
+            "description": "Select from the list of options.", 
+            "title": "Is the original code available?", 
+            "required": false, 
+            "type": "string"
+        }, 
+        "PSRI3": {
+            "type": "string", 
+            "required": false, 
+            "propertyOrder": "2", 
+            "description": "Answer if the data are publicly available.", 
+            "title": "Where are the original data archived (name and url)?"
+        }, 
+        "PSRI4": {
+            "type": "string", 
+            "required": false, 
+            "propertyOrder": "3", 
+            "description": "Answer if the code is publicly available.", 
+            "title": "Where is the original code publicly archived (name and url)?"
+        }, 
+        "PSRI5": {
+            "enum": [
+                "No", 
+                "Yes"
+            ], 
+            "propertyOrder": "4", 
+            "description": "Select from the list of options.", 
+            "title": "Will you submit your replication code to this Dataverse (This is a PSRI requirement)?", 
+            "required": false, 
+            "type": "string"
+        }, 
+        "PSRI6": {
+            "enum": [
+                "No", 
+                "Yes"
+            ], 
+            "propertyOrder": "5", 
+            "description": "Select from the list of options.", 
+            "title": "Will you submit your replication write-up to this Dataverse (This is a PSRI requirement)?", 
+            "required": false, 
+            "type": "string"
+        }, 
+        "PSRI7": {
+            "enum": [
+                "No", 
+                "Yes"
+            ], 
+            "propertyOrder": "6", 
+            "description": "Select from the list of options.", 
+            "title": "Did you send the replication materials to the original author(s) and notify them that you'd be posting your replication on PSRI?", 
+            "required": false, 
+            "type": "string"
+        }, 
+        "PSRI8": {
+            "enum": [
+                "No", 
+                "Yes", 
+                "NA"
+            ], 
+            "propertyOrder": "7", 
+            "description": "Select from the list of options.", 
+            "title": "Was the replication done in a course? (If so, please continue to answer the subsequent questions, and if not, select N/A)", 
+            "required": false, 
+            "type": "string"
+        }, 
+        "PSRI9": {
+            "enum": [
+                "NA", 
+                "No", 
+                "Yes"
+            ], 
+            "propertyOrder": "8", 
+            "description": "Select from the list of options.", 
+            "title": "Did another student attempt to replicate the replication in the class?", 
+            "required": false, 
+            "type": "string"
+        }, 
+        "PSRI10": {
+            "enum": [
+                "NA", 
+                "No", 
+                "Yes"
+            ], 
+            "propertyOrder": "9", 
+            "description": "Select from the list of options.", 
+            "title": "Did another student replicate this replication successfully?", 
+            "required": false, 
+            "type": "string"
+        }, 
+        "PSRI11": {
+            "enum": [
+                "NA", 
+                "No", 
+                "Yes"
+            ], 
+            "propertyOrder": "10", 
+            "description": "Select from the list of options.", 
+            "title": "Did a professor read/review a draft before the final version?", 
+            "required": false, 
+            "type": "string"
+        }
+    }
+}

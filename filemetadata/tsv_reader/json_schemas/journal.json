@@ -1,0 +1,76 @@
+{
+    "title": "journal", 
+    "type": "object", 
+    "properties": {
+        "journalVolumeIssue": {
+            "type": "string", 
+            "required": false, 
+            "propertyOrder": "0", 
+            "description": "Indicates the volume, issue and date of a journal, which this Dataset is associated with.", 
+            "title": "Journal"
+        }, 
+        "journalVolume": {
+            "type": "string", 
+            "required": false, 
+            "propertyOrder": "1", 
+            "description": "The journal volume which this Dataset is associated with (e.g., Volume 4).", 
+            "title": "Volume"
+        }, 
+        "journalIssue": {
+            "type": "string", 
+            "required": false, 
+            "propertyOrder": "2", 
+            "description": "The journal issue number which this Dataset is associated with (e.g., Number 2, Autumn).", 
+            "title": "Issue"
+        }, 
+        "journalPubDate": {
+            "propertyOrder": "3", 
+            "description": "The publication date for this journal volume/issue, which this Dataset is associated with (e.g., 1999).", 
+            "title": "Publication Date", 
+            "pattern": "^(19|20)\\d\\d[\\-\\/.](0[1-9]|1[012])[\\-\\/.](0[1-9]|[12][0-9]|3[01])$", 
+            "required": false, 
+            "type": "string"
+        }, 
+        "journalArticleType": {
+            "enum": [
+                "abstract", 
+                "addendum", 
+                "announcement", 
+                "article-commentary", 
+                "book review", 
+                "books received", 
+                "brief report", 
+                "calendar", 
+                "case report", 
+                "collection", 
+                "correction", 
+                "data paper", 
+                "discussion", 
+                "dissertation", 
+                "editorial", 
+                "in brief", 
+                "introduction", 
+                "letter", 
+                "meeting report", 
+                "news", 
+                "obituary", 
+                "oration", 
+                "partial retraction", 
+                "product review", 
+                "rapid communication", 
+                "reply", 
+                "reprint", 
+                "research article", 
+                "retraction", 
+                "review article", 
+                "translation", 
+                "other"
+            ], 
+            "propertyOrder": "4", 
+            "description": "Indicates what kind of article this is, for example, a research article, a commentary, a book or product review, a case report, a calendar, etc (based on JATS).", 
+            "title": "Type of Article", 
+            "required": false, 
+            "type": "string"
+        }
+    }
+}

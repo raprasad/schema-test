@@ -1,0 +1,26 @@
+{
+    "title": "customMRA", 
+    "type": "object", 
+    "properties": {
+        "mraCollection": {
+            "enum": [
+                "Diversity samples: Race, Ethnicity, Sexual Orientation, Religion", 
+                "Early Head Start Research and Evaluation Project, 1996 - 2001", 
+                "Economic Theory and Demography", 
+                "Education", 
+                "Family. Marriage. Women", 
+                "Health", 
+                "Politics and Government", 
+                "Replications, Extensions and Followups", 
+                "Studies with Audio Data", 
+                "Studies with Video Data", 
+                "Work"
+            ], 
+            "propertyOrder": "0", 
+            "description": "Browse the Murray Research Archive collection with the following terms.", 
+            "title": "Murray Research Archive Collection", 
+            "required": false, 
+            "type": "string"
+        }
+    }
+}

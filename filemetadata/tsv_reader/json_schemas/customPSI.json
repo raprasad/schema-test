@@ -1,0 +1,172 @@
+{
+    "title": "customPSI", 
+    "type": "object", 
+    "properties": {
+        "psiBehavior": {
+            "enum": [
+                "Abstinence", 
+                "Birth spacing", 
+                "Cervical cancer screening", 
+                "Condom use", 
+                "FGM", 
+                "HIV risk behaviors", 
+                "HIV/STI testing", 
+                "LLIN use", 
+                "Male circumcision", 
+                "Modern contraceptive use", 
+                "ORS use", 
+                "Partner reduction", 
+                "Referral uptake", 
+                "Treatment adherence", 
+                "Water treatment"
+            ], 
+            "propertyOrder": "0", 
+            "description": "Behavior", 
+            "title": "Behavior", 
+            "required": false, 
+            "type": "string"
+        }, 
+        "psiDonor": {
+            "enum": [
+                "CDC", 
+                "DFID", 
+                "Dutch", 
+                "Gates Foundation", 
+                "Global Fund", 
+                "KfW", 
+                "LAD", 
+                "Other", 
+                "PEPFAR", 
+                "UNFPA", 
+                "USAID"
+            ], 
+            "propertyOrder": "1", 
+            "description": "Donor", 
+            "title": "Donor", 
+            "required": false, 
+            "type": "string"
+        }, 
+        "psiHealthArea": {
+            "enum": [
+                "Diarrhea", 
+                "GBV", 
+                "HIV", 
+                "ICM", 
+                "Malaria", 
+                "NCDs", 
+                "Nutrition", 
+                "Pneumonia", 
+                "Reproductive health", 
+                "TB"
+            ], 
+            "propertyOrder": "2", 
+            "description": "Health Area", 
+            "title": "Health Area", 
+            "required": false, 
+            "type": "string"
+        }, 
+        "psiIntervention": {
+            "enum": [
+                "BCC", 
+                "IPC", 
+                "Medical detailing", 
+                "mHealth", 
+                "Provider training", 
+                "Social franchising"
+            ], 
+            "propertyOrder": "3", 
+            "description": "Intervention", 
+            "title": "Intervention", 
+            "required": false, 
+            "type": "string"
+        }, 
+        "psiPopulation": {
+            "enum": [
+                "Caregivers", 
+                "Couples", 
+                "FSW", 
+                "General population", 
+                "IDUs", 
+                "MARPs", 
+                "Men", 
+                "MSM", 
+                "PLHIV", 
+                "Providers", 
+                "Truck drivers", 
+                "Women", 
+                "WRA", 
+                "Youth"
+            ], 
+            "propertyOrder": "4", 
+            "description": "Population", 
+            "title": "Population", 
+            "required": false, 
+            "type": "string"
+        }, 
+        "psiProductsServices": {
+            "enum": [
+                "ACT", 
+                "ANC", 
+                "Antibiotics", 
+                "ART", 
+                "Clean delivery kit", 
+                "Condoms", 
+                "Household water treatment", 
+                "HTC", 
+                "LLIN", 
+                "Long-term Methods", 
+                "Medicated Abortion", 
+                "Misoprostol", 
+                "Multivitamin", 
+                "Needle and syringe", 
+                "Nevirapine", 
+                "ORS", 
+                "PMTCT", 
+                "Short-term methods", 
+                "STI kit", 
+                "TB DOTS", 
+                "VMC", 
+                "Zinc"
+            ], 
+            "propertyOrder": "5", 
+            "description": "Products/Services", 
+            "title": "Products/Services", 
+            "required": false, 
+            "type": "string"
+        }, 
+        "psiStudyDesignElement": {
+            "enum": [
+                "CEM", 
+                "Client exit interview", 
+                "Control group", 
+                "Cross-sectional", 
+                "Focus group", 
+                "In-depth interview", 
+                "Longitudinal", 
+                "LQAS", 
+                "Mystery client", 
+                "Pretesting", 
+                "TRaC"
+            ], 
+            "propertyOrder": "6", 
+            "description": "Study Design Element", 
+            "title": "Study Design Element", 
+            "required": false, 
+            "type": "string"
+        }, 
+        "psiStudyType": {
+            "enum": [
+                "MAP", 
+                "Mixed Methods", 
+                "Qualitative", 
+                "Quantitative", 
+                "Retail audit"
+            ], 
+            "propertyOrder": "7", 
+            "description": "Study Type", 
+            "title": "Study Type", 
+            "required": false, 
+            "type": "string"
+        }
+    }
+}

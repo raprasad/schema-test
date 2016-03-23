@@ -1,0 +1,80 @@
+{
+    "title": "customDigaai", 
+    "type": "object", 
+    "properties": {
+        "titulo": {
+            "enum": [
+                "Achei USA", 
+                "Acontece Magazine", 
+                "A Not\u00edcia", 
+                "Brasil Best", 
+                "Brasileiros & Brasileiras", 
+                "Brasil USA", 
+                "Brazil Explore", 
+                "Brazilian Press", 
+                "Brazilian Voice", 
+                "Brazil News", 
+                "Brazuca", 
+                "Cia Brasil", 
+                "Comunidade News", 
+                "Di\u00e1rio do Brasil", 
+                "FaceBrasil", 
+                "Green and Yellow News", 
+                "Jornal dos Sports", 
+                "Jornal Moderno", 
+                "Metropolitan", 
+                "National", 
+                "Neg\u00f3cio Fechado", 
+                "Nossa Gente", 
+                "Nossa Terra", 
+                "O Brasileirinho", 
+                "O Imigrante Crist\u00e3o", 
+                "O Jornal Brasileiro", 
+                "O Popular", 
+                "Revista Linha Aberta", 
+                "Revista MASSA", 
+                "Revista Tititi", 
+                "Sucesso USA", 
+                "Ta na M\u00e3o", 
+                "TC Brazil", 
+                "Texas Magazine", 
+                "The Brazilian Journal", 
+                "Today Magazine", 
+                "Viver Magazine"
+            ], 
+            "propertyOrder": "0", 
+            "description": "T\u00edtulo do jornal ou revista.", 
+            "title": "T\u00edtulo", 
+            "required": false, 
+            "type": "string"
+        }, 
+        "numero": {
+            "type": "string", 
+            "required": false, 
+            "propertyOrder": "1", 
+            "description": "N\u00famero do jornal ou revista.", 
+            "title": "N\u00famero"
+        }, 
+        "datadePublicao": {
+            "type": "string", 
+            "required": false, 
+            "propertyOrder": "2", 
+            "description": "Entrar dia/mes/ano.", 
+            "title": "Data de Publica\u00e7\u00e3o"
+        }, 
+        "localdePublicao": {
+            "type": "string", 
+            "required": false, 
+            "propertyOrder": "3", 
+            "description": "Local de Publica\u00e7\u00e3o.", 
+            "title": "Local de Publica\u00e7\u00e3o"
+        }, 
+        "proprietrio": {
+            "type": "string", 
+            "required": false, 
+            "propertyOrder": "4", 
+            "description": "Propriet\u00e1rio", 
+            "title": "Propriet\u00e1rio"
+        }
+    }
+}
