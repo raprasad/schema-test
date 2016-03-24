@@ -3,210 +3,172 @@
     "type": "object", 
     "properties": {
         "unitOfAnalysis": {
+            "propertyOrder": "0", 
             "description": "Basic unit of analysis or observation that this Dataset describes, such as individuals, families/households, groups, institutions/organizations, administrative units, and more. For information about the DDI's controlled vocabulary for this element, please refer to the DDI web page at http://www.ddialliance.org/Specification/DDI-CV/.", 
             "title": "Unit of Analysis", 
-            "uniqueItems": true, 
-            "items": {
-                "type": "object", 
-                "properties": {
-                    "type": {
-                        "type": "string", 
-                        "required": false, 
-                        "propertyOrder": "0", 
-                        "title": "Unit of Analysis"
-                    }
-                }, 
-                "title": "Unit of Analysis"
-            }, 
-            "format": "table", 
-            "type": "array"
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "universe": {
+            "propertyOrder": "1", 
             "description": "Description of the population covered by the data in the file; the group of people or other elements that are the object of the study and to which the study results refer. Age, nationality, and residence commonly help to  delineate a given universe, but any number of other factors may be used, such as age limits, sex, marital status, race, ethnic group, nationality, income, veteran status, criminal convictions, and more. The universe may consist of elements other than persons, such as housing units, court cases, deaths, countries, and so on. In general, it should be possible to tell from the description of the universe whether a given individual or element is a member of the population under study. Also known as the universe of interest, population of interest, and target population.", 
             "title": "Universe", 
-            "uniqueItems": true, 
-            "items": {
-                "type": "object", 
-                "properties": {
-                    "type": {
-                        "type": "string", 
-                        "required": false, 
-                        "propertyOrder": "1", 
-                        "title": "Universe"
-                    }
-                }, 
-                "title": "Universe"
-            }, 
-            "format": "table", 
-            "type": "array"
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "timeMethod": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "2", 
             "description": "The time method or time dimension of the data collection, such as panel, cross-sectional, trend, time- series, or other.", 
-            "title": "Time Method"
+            "title": "Time Method", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "dataCollector": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "3", 
             "description": "Individual, agency or organization responsible for  administering the questionnaire or interview or compiling the data.", 
-            "title": "Data Collector"
+            "title": "Data Collector", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "collectorTraining": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "4", 
             "description": "Type of training provided to the data collector", 
-            "title": "Collector Training"
+            "title": "Collector Training", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "frequencyOfDataCollection": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "5", 
             "description": "If the data collected includes more than one point in time, indicate the frequency with which the data was collected; that is, monthly, quarterly, or other.", 
-            "title": "Frequency"
+            "title": "Frequency", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "samplingProcedure": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "6", 
             "description": "Type of sample and sample design used to select the survey respondents to represent the population. May include reference to the target sample size and the sampling fraction.", 
-            "title": "Sampling Procedure"
+            "title": "Sampling Procedure", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "targetSampleSize": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "7", 
             "description": "Specific information regarding the target sample size, actual  sample size, and the formula used to determine this.", 
-            "title": "Target Sample Size"
-        }, 
-        "targetSampleActualSize": {
-            "type": "integer", 
+            "title": "Target Sample Size", 
+            "display_format": null, 
             "required": false, 
-            "propertyOrder": "8", 
-            "description": "Actual sample size.", 
-            "title": "Actual"
-        }, 
-        "targetSampleSizeFormula": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "9", 
-            "description": "Formula used to determine target sample size.", 
-            "title": "Formula"
+            "type": "string"
         }, 
         "deviationsFromSampleDesign": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "10", 
             "description": "Show correspondence as well as discrepancies between the sampled units (obtained) and available statistics for the population (age, sex-ratio, marital status, etc.) as a whole.", 
-            "title": "Major Deviations for Sample Design"
+            "title": "Major Deviations for Sample Design", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "collectionMode": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "11", 
             "description": "Method used to collect the data; instrumentation characteristics (e.g., telephone interview, mail questionnaire, or other).", 
-            "title": "Collection Mode"
+            "title": "Collection Mode", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "researchInstrument": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "12", 
             "description": "Type of data collection instrument used. Structured indicates an instrument in which all respondents are asked the same questions/tests, possibly with precoded answers. If a small portion of such a questionnaire includes open-ended questions, provide appropriate comments. Semi-structured indicates that the research instrument contains mainly open-ended questions. Unstructured indicates that in-depth interviews were conducted.", 
-            "title": "Type of Research Instrument"
+            "title": "Type of Research Instrument", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "dataCollectionSituation": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "13", 
             "description": "Description of noteworthy aspects of the data collection situation. Includes information on factors such as cooperativeness of respondents, duration of interviews, number of call backs, or similar.", 
-            "title": "Characteristics of Data Collection Situation"
+            "title": "Characteristics of Data Collection Situation", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "actionsToMinimizeLoss": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "14", 
             "description": "Summary of actions taken to minimize data loss. Include information on actions such as follow-up visits, supervisory checks, historical matching, estimation, and so on.", 
-            "title": "Actions to Minimize Losses"
+            "title": "Actions to Minimize Losses", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "controlOperations": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "15", 
             "description": "Control OperationsMethods to facilitate data control performed by the primary investigator or by the data archive.", 
-            "title": "Control Operations"
+            "title": "Control Operations", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "weighting": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "16", 
             "description": "The use of sampling procedures might make it necessary to apply weights to produce accurate statistical results. Describes the criteria for using weights in analysis of a collection. If a weighting formula or coefficient was developed, the formula is provided, its elements are defined, and it is indicated how the formula was applied to the data.", 
-            "title": "Weighting"
+            "title": "Weighting", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "cleaningOperations": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "17", 
             "description": "Methods used to clean the data collection, such as consistency checking, wildcode checking, or other.", 
-            "title": "Cleaning Operations"
+            "title": "Cleaning Operations", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "datasetLevelErrorNotes": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "18", 
             "description": "Note element used for any information annotating or clarifying the methodology and processing of the study.", 
-            "title": "Study Level Error Notes"
+            "title": "Study Level Error Notes", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "responseRate": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "19", 
             "description": "Percentage of sample members who provided information.", 
-            "title": "Response Rate"
+            "title": "Response Rate", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "samplingErrorEstimates": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "20", 
             "description": "Measure of how precisely one can estimate a population value from a given sample.", 
-            "title": "Estimates of Sampling Error"
+            "title": "Estimates of Sampling Error", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "otherDataAppraisal": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "21", 
             "description": "Other issues pertaining to the data appraisal. Describe issues such as response variance, nonresponse rate  and testing for bias, interviewer and response bias, confidence levels, question bias, or similar.", 
-            "title": "Other Forms of Data Appraisal"
+            "title": "Other Forms of Data Appraisal", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "socialScienceNotes": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "22", 
             "description": "General notes about this Dataset.", 
-            "title": "Notes"
-        }, 
-        "socialScienceNotesType": {
-            "type": "string", 
+            "title": "Notes", 
+            "display_format": null, 
             "required": false, 
-            "propertyOrder": "23", 
-            "description": "Type of note.", 
-            "title": "Type"
-        }, 
-        "socialScienceNotesSubject": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "24", 
-            "description": "Note subject.", 
-            "title": "Subject"
-        }, 
-        "socialScienceNotesText": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "25", 
-            "description": "Text for this note.", 
-            "title": "Text"
+            "type": "string"
         }
     }
 }

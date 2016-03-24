@@ -3,90 +3,83 @@
     "type": "object", 
     "properties": {
         "titulo": {
+            "enum": [
+                "Achei USA", 
+                "Acontece Magazine", 
+                "A Not\u00edcia", 
+                "Brasil Best", 
+                "Brasileiros & Brasileiras", 
+                "Brasil USA", 
+                "Brazil Explore", 
+                "Brazilian Press", 
+                "Brazilian Voice", 
+                "Brazil News", 
+                "Brazuca", 
+                "Cia Brasil", 
+                "Comunidade News", 
+                "Di\u00e1rio do Brasil", 
+                "FaceBrasil", 
+                "Green and Yellow News", 
+                "Jornal dos Sports", 
+                "Jornal Moderno", 
+                "Metropolitan", 
+                "National", 
+                "Neg\u00f3cio Fechado", 
+                "Nossa Gente", 
+                "Nossa Terra", 
+                "O Brasileirinho", 
+                "O Imigrante Crist\u00e3o", 
+                "O Jornal Brasileiro", 
+                "O Popular", 
+                "Revista Linha Aberta", 
+                "Revista MASSA", 
+                "Revista Tititi", 
+                "Sucesso USA", 
+                "Ta na M\u00e3o", 
+                "TC Brazil", 
+                "Texas Magazine", 
+                "The Brazilian Journal", 
+                "Today Magazine", 
+                "Viver Magazine"
+            ], 
             "description": "T\u00edtulo do jornal ou revista.", 
             "title": "T\u00edtulo", 
-            "uniqueItems": true, 
-            "items": {
-                "type": "object", 
-                "properties": {
-                    "type": {
-                        "type": "string", 
-                        "required": false, 
-                        "propertyOrder": "0", 
-                        "enum": [
-                            "Achei USA", 
-                            "Acontece Magazine", 
-                            "A Not\u00edcia", 
-                            "Brasil Best", 
-                            "Brasileiros & Brasileiras", 
-                            "Brasil USA", 
-                            "Brazil Explore", 
-                            "Brazilian Press", 
-                            "Brazilian Voice", 
-                            "Brazil News", 
-                            "Brazuca", 
-                            "Cia Brasil", 
-                            "Comunidade News", 
-                            "Di\u00e1rio do Brasil", 
-                            "FaceBrasil", 
-                            "Green and Yellow News", 
-                            "Jornal dos Sports", 
-                            "Jornal Moderno", 
-                            "Metropolitan", 
-                            "National", 
-                            "Neg\u00f3cio Fechado", 
-                            "Nossa Gente", 
-                            "Nossa Terra", 
-                            "O Brasileirinho", 
-                            "O Imigrante Crist\u00e3o", 
-                            "O Jornal Brasileiro", 
-                            "O Popular", 
-                            "Revista Linha Aberta", 
-                            "Revista MASSA", 
-                            "Revista Tititi", 
-                            "Sucesso USA", 
-                            "Ta na M\u00e3o", 
-                            "TC Brazil", 
-                            "Texas Magazine", 
-                            "The Brazilian Journal", 
-                            "Today Magazine", 
-                            "Viver Magazine"
-                        ], 
-                        "title": "T\u00edtulo"
-                    }
-                }, 
-                "title": "T\u00edtulo"
-            }, 
-            "format": "table", 
-            "type": "array"
+            "required": false, 
+            "propertyOrder": "0", 
+            "display_format": null, 
+            "type": "string"
         }, 
         "numero": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "1", 
             "description": "N\u00famero do jornal ou revista.", 
-            "title": "N\u00famero"
+            "title": "N\u00famero", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "datadePublicao": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "2", 
             "description": "Entrar dia/mes/ano.", 
-            "title": "Data de Publica\u00e7\u00e3o"
+            "title": "Data de Publica\u00e7\u00e3o", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "localdePublicao": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "3", 
             "description": "Local de Publica\u00e7\u00e3o.", 
-            "title": "Local de Publica\u00e7\u00e3o"
+            "title": "Local de Publica\u00e7\u00e3o", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "proprietrio": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "4", 
             "description": "Propriet\u00e1rio", 
-            "title": "Propriet\u00e1rio"
+            "title": "Propriet\u00e1rio", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }
     }
 }

@@ -3,334 +3,255 @@
     "type": "object", 
     "properties": {
         "astroType": {
+            "enum": [
+                "Image", 
+                "Mosaic", 
+                "EventList", 
+                "Spectrum", 
+                "Cube", 
+                "Table", 
+                "Catalog", 
+                "LightCurve", 
+                "Simulation", 
+                "Figure", 
+                "Artwork", 
+                "Animation", 
+                "PrettyPicture", 
+                "Documentation", 
+                "Other", 
+                "Library", 
+                "Press Release", 
+                "Facsimile", 
+                "Historical", 
+                "Observation", 
+                "Object", 
+                "Value", 
+                "ValuePair", 
+                "Survey"
+            ], 
             "description": "The nature or genre of the content of the files in the dataset.", 
             "title": "Type", 
-            "uniqueItems": true, 
-            "items": {
-                "type": "object", 
-                "properties": {
-                    "type": {
-                        "type": "string", 
-                        "required": false, 
-                        "propertyOrder": "0", 
-                        "enum": [
-                            "Image", 
-                            "Mosaic", 
-                            "EventList", 
-                            "Spectrum", 
-                            "Cube", 
-                            "Table", 
-                            "Catalog", 
-                            "LightCurve", 
-                            "Simulation", 
-                            "Figure", 
-                            "Artwork", 
-                            "Animation", 
-                            "PrettyPicture", 
-                            "Documentation", 
-                            "Other", 
-                            "Library", 
-                            "Press Release", 
-                            "Facsimile", 
-                            "Historical", 
-                            "Observation", 
-                            "Object", 
-                            "Value", 
-                            "ValuePair", 
-                            "Survey"
-                        ], 
-                        "title": "Type"
-                    }
-                }, 
-                "title": "Type"
-            }, 
-            "format": "table", 
-            "type": "array"
+            "required": false, 
+            "propertyOrder": "0", 
+            "display_format": null, 
+            "type": "string"
         }, 
         "astroFacility": {
+            "propertyOrder": "1", 
             "description": "The observatory or facility where the data was obtained.", 
             "title": "Facility", 
-            "uniqueItems": true, 
-            "items": {
-                "type": "object", 
-                "properties": {
-                    "type": {
-                        "type": "string", 
-                        "required": false, 
-                        "propertyOrder": "1", 
-                        "title": "Facility"
-                    }
-                }, 
-                "title": "Facility"
-            }, 
-            "format": "table", 
-            "type": "array"
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "astroInstrument": {
+            "propertyOrder": "2", 
             "description": "The instrument used to collect the data.", 
             "title": "Instrument", 
-            "uniqueItems": true, 
-            "items": {
-                "type": "object", 
-                "properties": {
-                    "type": {
-                        "type": "string", 
-                        "required": false, 
-                        "propertyOrder": "2", 
-                        "title": "Instrument"
-                    }
-                }, 
-                "title": "Instrument"
-            }, 
-            "format": "table", 
-            "type": "array"
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "astroObject": {
+            "propertyOrder": "3", 
             "description": "Astronomical Objects represented in the data (Given as SIMBAD recognizable names preferred).", 
             "title": "Object", 
-            "uniqueItems": true, 
-            "items": {
-                "type": "object", 
-                "properties": {
-                    "type": {
-                        "type": "string", 
-                        "required": false, 
-                        "propertyOrder": "3", 
-                        "title": "Object"
-                    }
-                }, 
-                "title": "Object"
-            }, 
-            "format": "table", 
-            "type": "array"
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "resolution.Spatial": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "4", 
             "description": "The spatial (angular) resolution that is typical of the observations, in decimal degrees.", 
-            "title": "Spatial Resolution"
+            "title": "Spatial Resolution", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "resolution.Spectral": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "5", 
             "description": "The spectral resolution that is typical of the observations, given as the ratio \u03bb/\u0394\u03bb.", 
-            "title": "Spectral Resolution"
+            "title": "Spectral Resolution", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "resolution.Temporal": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "6", 
             "description": "The temporal resolution that is typical of the observations, given in seconds.", 
-            "title": "Time Resolution"
+            "title": "Time Resolution", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "coverage.Spectral.Bandpass": {
+            "propertyOrder": "7", 
             "description": "Conventional bandpass name", 
             "title": "Bandpass", 
-            "uniqueItems": true, 
-            "items": {
-                "type": "object", 
-                "properties": {
-                    "type": {
-                        "type": "string", 
-                        "required": false, 
-                        "propertyOrder": "7", 
-                        "title": "Bandpass"
-                    }
-                }, 
-                "title": "Bandpass"
-            }, 
-            "format": "table", 
-            "type": "array"
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "coverage.Spectral.CentralWavelength": {
+            "propertyOrder": "8", 
             "description": "The central wavelength of the spectral bandpass, in meters.", 
             "title": "Central Wavelength (m)", 
-            "uniqueItems": true, 
-            "items": {
-                "type": "object", 
-                "properties": {
-                    "type": {
-                        "type": "string", 
-                        "required": false, 
-                        "propertyOrder": "8", 
-                        "title": "Central Wavelength (m)"
-                    }
-                }, 
-                "title": "Central Wavelength (m)"
-            }, 
-            "format": "table", 
-            "type": "array"
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "coverage.Spectral.Wavelength": {
             "description": "The minimum and maximum wavelength of the spectral bandpass.", 
             "title": "Wavelength Range", 
-            "uniqueItems": true, 
             "items": {
                 "type": "object", 
                 "properties": {
-                    "type": {
-                        "type": "string", 
+                    "coverage.Spectral.MinimumWavelength": {
+                        "propertyOrder": "10", 
+                        "description": "The minimum wavelength of the spectral bandpass, in meters.", 
+                        "title": "Minimum (m)", 
+                        "display_format": null, 
                         "required": false, 
-                        "propertyOrder": "9", 
-                        "title": "Wavelength Range"
+                        "type": "string"
+                    }, 
+                    "coverage.Spectral.MaximumWavelength": {
+                        "propertyOrder": "11", 
+                        "description": "The maximum wavelength of the spectral bandpass, in meters.", 
+                        "title": "Maximum (m)", 
+                        "display_format": null, 
+                        "required": false, 
+                        "type": "string"
                     }
                 }, 
                 "title": "Wavelength Range"
             }, 
             "format": "table", 
+            "uniqueItems": true, 
             "type": "array"
-        }, 
-        "coverage.Spectral.MinimumWavelength": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "10", 
-            "description": "The minimum wavelength of the spectral bandpass, in meters.", 
-            "title": "Minimum (m)"
-        }, 
-        "coverage.Spectral.MaximumWavelength": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "11", 
-            "description": "The maximum wavelength of the spectral bandpass, in meters.", 
-            "title": "Maximum (m)"
         }, 
         "coverage.Temporal": {
             "description": "Time period covered by the data.", 
             "title": "Dataset Date Range", 
-            "uniqueItems": true, 
             "items": {
                 "type": "object", 
                 "properties": {
-                    "type": {
-                        "type": "string", 
+                    "coverage.Temporal.StartTime": {
+                        "propertyOrder": "13", 
+                        "description": "Dataset Start Date", 
+                        "title": "Start", 
+                        "pattern": "^(19|20)\\d\\d[\\-\\/.](0[1-9]|1[012])[\\-\\/.](0[1-9]|[12][0-9]|3[01])$", 
+                        "display_format": null, 
                         "required": false, 
-                        "propertyOrder": "12", 
-                        "title": "Dataset Date Range"
+                        "type": "string"
+                    }, 
+                    "coverage.Temporal.StopTime": {
+                        "propertyOrder": "14", 
+                        "description": "Dataset End Date", 
+                        "title": "End", 
+                        "pattern": "^(19|20)\\d\\d[\\-\\/.](0[1-9]|1[012])[\\-\\/.](0[1-9]|[12][0-9]|3[01])$", 
+                        "display_format": null, 
+                        "required": false, 
+                        "type": "string"
                     }
                 }, 
                 "title": "Dataset Date Range"
             }, 
             "format": "table", 
+            "uniqueItems": true, 
             "type": "array"
-        }, 
-        "coverage.Temporal.StartTime": {
-            "propertyOrder": "13", 
-            "description": "Dataset Start Date", 
-            "title": "Start", 
-            "pattern": "^(19|20)\\d\\d[\\-\\/.](0[1-9]|1[012])[\\-\\/.](0[1-9]|[12][0-9]|3[01])$", 
-            "required": false, 
-            "type": "string"
-        }, 
-        "coverage.Temporal.StopTime": {
-            "propertyOrder": "14", 
-            "description": "Dataset End Date", 
-            "title": "End", 
-            "pattern": "^(19|20)\\d\\d[\\-\\/.](0[1-9]|1[012])[\\-\\/.](0[1-9]|[12][0-9]|3[01])$", 
-            "required": false, 
-            "type": "string"
         }, 
         "coverage.Spatial": {
+            "propertyOrder": "15", 
             "description": "The sky coverage of the data object.", 
             "title": "Sky Coverage", 
-            "uniqueItems": true, 
-            "items": {
-                "type": "object", 
-                "properties": {
-                    "type": {
-                        "type": "string", 
-                        "required": false, 
-                        "propertyOrder": "15", 
-                        "title": "Sky Coverage"
-                    }
-                }, 
-                "title": "Sky Coverage"
-            }, 
-            "format": "table", 
-            "type": "array"
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "coverage.Depth": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "16", 
             "description": "The (typical) depth coverage, or sensitivity, of the data object in Jy.", 
-            "title": "Depth Coverage"
+            "title": "Depth Coverage", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "coverage.ObjectDensity": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "17", 
             "description": "The (typical) density of objects, catalog entries, telescope pointings, etc., on the sky, in number per square degree.", 
-            "title": "Object Density"
+            "title": "Object Density", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "coverage.ObjectCount": {
-            "type": "integer", 
-            "required": false, 
             "propertyOrder": "18", 
             "description": "The total number of objects, catalog entries, etc., in the data object.", 
-            "title": "Object Count"
+            "title": "Object Count", 
+            "display_format": null, 
+            "required": false, 
+            "type": "integer"
         }, 
         "coverage.SkyFraction": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "19", 
             "description": "The fraction of the sky represented in the observations, ranging from 0 to 1.", 
-            "title": "Fraction of Sky"
+            "title": "Fraction of Sky", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "coverage.Polarization": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "20", 
             "description": "The polarization coverage", 
-            "title": "Polarization"
+            "title": "Polarization", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "redshiftType": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "21", 
             "description": "RedshiftType string C \"Redshift\"; or \"Optical\" or \"Radio\" definitions of Doppler velocity used in the data object.", 
-            "title": "RedshiftType"
+            "title": "RedshiftType", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "resolution.Redshift": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "22", 
             "description": "The resolution in redshift (unitless) or Doppler velocity (km/s) in the data object.", 
-            "title": "Redshift Resolution"
+            "title": "Redshift Resolution", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "coverage.RedshiftValue": {
             "description": "The value of the redshift (unitless) or Doppler velocity (km/s in the data object.", 
             "title": "Redshift Value", 
-            "uniqueItems": true, 
             "items": {
                 "type": "object", 
                 "properties": {
-                    "type": {
-                        "type": "string", 
+                    "coverage.Redshift.MinimumValue": {
+                        "propertyOrder": "24", 
+                        "description": "The minimum value of the redshift (unitless) or Doppler velocity (km/s in the data object.", 
+                        "title": "Minimum", 
+                        "display_format": null, 
                         "required": false, 
-                        "propertyOrder": "23", 
-                        "title": "Redshift Value"
+                        "type": "string"
+                    }, 
+                    "coverage.Redshift.MaximumValue": {
+                        "propertyOrder": "25", 
+                        "description": "The maximum value of the redshift (unitless) or Doppler velocity (km/s in the data object.", 
+                        "title": "Maximum", 
+                        "display_format": null, 
+                        "required": false, 
+                        "type": "string"
                     }
                 }, 
                 "title": "Redshift Value"
             }, 
             "format": "table", 
+            "uniqueItems": true, 
             "type": "array"
-        }, 
-        "coverage.Redshift.MinimumValue": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "24", 
-            "description": "The minimum value of the redshift (unitless) or Doppler velocity (km/s in the data object.", 
-            "title": "Minimum"
-        }, 
-        "coverage.Redshift.MaximumValue": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "25", 
-            "description": "The maximum value of the redshift (unitless) or Doppler velocity (km/s in the data object.", 
-            "title": "Maximum"
         }
     }
 }

@@ -5,43 +5,40 @@
         "journalVolumeIssue": {
             "description": "Indicates the volume, issue and date of a journal, which this Dataset is associated with.", 
             "title": "Journal", 
-            "uniqueItems": true, 
             "items": {
                 "type": "object", 
                 "properties": {
-                    "type": {
-                        "type": "string", 
+                    "journalVolume": {
+                        "propertyOrder": "1", 
+                        "description": "The journal volume which this Dataset is associated with (e.g., Volume 4).", 
+                        "title": "Volume", 
+                        "display_format": null, 
                         "required": false, 
-                        "propertyOrder": "0", 
-                        "title": "Journal"
+                        "type": "string"
+                    }, 
+                    "journalIssue": {
+                        "propertyOrder": "2", 
+                        "description": "The journal issue number which this Dataset is associated with (e.g., Number 2, Autumn).", 
+                        "title": "Issue", 
+                        "display_format": null, 
+                        "required": false, 
+                        "type": "string"
+                    }, 
+                    "journalPubDate": {
+                        "propertyOrder": "3", 
+                        "description": "The publication date for this journal volume/issue, which this Dataset is associated with (e.g., 1999).", 
+                        "title": "Publication Date", 
+                        "pattern": "^(19|20)\\d\\d[\\-\\/.](0[1-9]|1[012])[\\-\\/.](0[1-9]|[12][0-9]|3[01])$", 
+                        "display_format": null, 
+                        "required": false, 
+                        "type": "string"
                     }
                 }, 
                 "title": "Journal"
             }, 
             "format": "table", 
+            "uniqueItems": true, 
             "type": "array"
-        }, 
-        "journalVolume": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "1", 
-            "description": "The journal volume which this Dataset is associated with (e.g., Volume 4).", 
-            "title": "Volume"
-        }, 
-        "journalIssue": {
-            "type": "string", 
-            "required": false, 
-            "propertyOrder": "2", 
-            "description": "The journal issue number which this Dataset is associated with (e.g., Number 2, Autumn).", 
-            "title": "Issue"
-        }, 
-        "journalPubDate": {
-            "propertyOrder": "3", 
-            "description": "The publication date for this journal volume/issue, which this Dataset is associated with (e.g., 1999).", 
-            "title": "Publication Date", 
-            "pattern": "^(19|20)\\d\\d[\\-\\/.](0[1-9]|1[012])[\\-\\/.](0[1-9]|[12][0-9]|3[01])$", 
-            "required": false, 
-            "type": "string"
         }, 
         "journalArticleType": {
             "enum": [
@@ -78,10 +75,11 @@
                 "translation", 
                 "other"
             ], 
-            "propertyOrder": "4", 
             "description": "Indicates what kind of article this is, for example, a research article, a commentary, a book or product review, a case report, a calendar, etc (based on JATS).", 
             "title": "Type of Article", 
             "required": false, 
+            "propertyOrder": "4", 
+            "display_format": null, 
             "type": "string"
         }
     }
