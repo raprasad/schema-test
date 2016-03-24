@@ -7,13 +7,14 @@ from os.path import isfile, isdir, join
 import csv
 import json
 from collections import OrderedDict
+from static_values import FIELD_NAMES, DELIMITER
+from utils import FormatHelper
 
 def msg(m): print m
 def dashes(): msg('-' * 40)
 def msgt(m): dashes(); msg(m); dashes()
 def msgx(m): msgt(m); sys.exit(0)
 
-FIELD_NAMES = """datasetField name title description watermark  fieldType displayOrder displayFormat advancedSearchField allowControlledVocabulary allowmultiples facetable showabovefold required parent metadatablock_id""".split()
 
 class MetadataLine(object):
 
@@ -21,6 +22,7 @@ class MetadataLine(object):
 
         self.init_fields(line)
         self.vocabinfo_list = None # [VocabInfo, VocabInfo, VocabInfo]
+        self.children = []  # map be a parent
 
     def get_vocab_values_only(self):
         if not self.vocabinfo_list or\
@@ -51,27 +53,10 @@ class MetadataLine(object):
         for idx, field_name in enumerate(FIELD_NAMES):
 
             if idx < len(line_items):
-                val = MetadataLine.format_val(line_items[idx])
+                val = FormatHelper.format_val(line_items[idx])
             else:
                 val = None
             self.__dict__[field_name] = val
-
-    @staticmethod
-    def format_val(val):
-        if val is None:
-            return None
-
-        val = val.strip()
-        if len(val) == 0:
-            return None
-
-        if val == "FALSE":
-            return False
-
-        if val == "TRUE":
-            return True
-
-        return val
 
     def show(self):
 
@@ -113,13 +98,58 @@ allowmultiples
         }
       },
     """
+
+    def as_basic_json_schema_property(self):
+        """
+        Definition of single field as a Python dict
+        that matches the JSON schema
+        """
+
+        # basic params for a single field or subfield
+        prop_dict = dict(title=self.title,\
+                        description=self.description,\
+                        propertyOrder=self.displayOrder,\
+                        required=self.required,\
+                        display_format=self.displayFormat\
+                        )
+        vocab_enum = self.get_vocab_values_only()
+        if vocab_enum:
+            prop_dict['enum'] = vocab_enum
+
+        prop_type = self.get_json_schema_type()
+        if prop_type:
+            prop_dict.update(prop_type)
+
+        return prop_dict
+
     def as_json_schema_property(self, as_json_string=False):
 
         val_dict = self.__dict__.copy()
         val_dict.pop('vocabinfo_list')
         val_dict['controlled_vocabulary'] =  self.get_vocab_values(as_list=True)
 
-        if self.allowmultiples:
+        if self.allowmultiples and len(self.children) > 0:
+            # prepared individual fields "items"
+            properties = OrderedDict()
+            for child_info in self.children:
+                msg('child info: %s' % child_info.name)
+                properties[child_info.name] = child_info.as_basic_json_schema_property()
+
+            prop_dict = OrderedDict(title=self.title,\
+                        format="table",\
+                        type="array",\
+                        uniqueItems=True,\
+                        description=self.description,\
+                        items=OrderedDict(
+                            type="object",\
+                            title=self.title,\
+                            properties=properties)
+                        )
+            return prop_dict
+        else:
+            return self.as_basic_json_schema_property()
+        """
+        elif self.allowmultiples:
             prop_dict = OrderedDict(title=self.title,\
                         format="table",\
                         type="array",\
@@ -168,7 +198,7 @@ allowmultiples
               }'''
 
         else:
-
+            # basic params for a single field or subfield
             prop_dict = dict(title=self.title,\
                             description=self.description,\
                             propertyOrder=self.displayOrder,\
@@ -184,10 +214,7 @@ allowmultiples
                 prop_dict.update(prop_type)
 
         return prop_dict
-
-        #return {self.name : prop_dict}
-        #   "datasetField name title description watermark  fieldType displayOrder displayFormat advancedSearchField allowControlledVocabulary allowmultiples facetable showabovefold required parent metadatablock_id""".split()
-
+        """
     def get_json_schema_type(self):
 
         type_string = dict(type='string')

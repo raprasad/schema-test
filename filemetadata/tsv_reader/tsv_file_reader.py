@@ -6,6 +6,9 @@ import sys
 from os.path import isfile, isdir, join
 import os
 from tsv_field_info import MetadataLine
+from vocab_info import VocabInfo
+from static_values import DELIMITER
+from utils import FormatHelper
 import json
 from collections import OrderedDict
 
@@ -15,37 +18,6 @@ def msgt(m): dashes(); msg(m); dashes()
 def msgx(m): msgt(m); sys.exit(0)
 
 
-DELIMITER = '\t'
-
-VOCAB_FIELD_NAMES = 'field value identifier display_order'.split()
-class VocabInfo(object):
-
-    def __init__(self, vocab_line):
-        self.init_fields(vocab_line)
-
-    def init_fields(self, line):
-
-        line_items = line.split(DELIMITER)
-
-        # Iterate through fields
-        for idx, field_name in enumerate([None] + VOCAB_FIELD_NAMES):
-            if idx == 0: continue   # skip 1st col which is empty
-            if idx < len(line_items):
-                # set a line item value if you have it
-                val = MetadataLine.format_val(line_items[idx])
-            else:
-                # default to None
-                val = None
-            self.__dict__[field_name] = val
-
-    def as_dict(self):
-        d = {}
-        for field_name in VOCAB_FIELD_NAMES[1:]:
-            d[field_name] = self.__dict__.get(field_name, None)
-        return d
-
-    def as_json(self):
-        print json.dumps(self.__dict__, indent=4)
 
 class MetadataReader(object):
 
@@ -79,7 +51,7 @@ class MetadataReader(object):
         #
         field_ordered_dict = OrderedDict()
         for field_info in self.field_info_list:
-            if 1: #field_info.name == 'subject':
+            if 1:   #field_info.name == 'author':
                 field_ordered_dict[field_info.name] =\
                     field_info.as_json_schema_property()
                 #field_list.append(field_info.as_json_schema_property())
@@ -125,7 +97,7 @@ class MetadataReader(object):
             print (idx, attr)
             if idx < len(line_items):
                 # set a line item value if you have it
-                self.__dict__[attr] = MetadataLine.format_val(line_items[idx])
+                self.__dict__[attr] = FormatHelper.format_val(line_items[idx])
             else:
                 self.__dict__[attr] = None
         #self.show()
@@ -140,12 +112,19 @@ class MetadataReader(object):
         """
         Add controlled vocabulary to the MetadataLine objects
         """
-        for field_info in self.field_info_list:
+        all_field_info_objects = []
+        for finfo in self.field_info_list:
+            all_field_info_objects.append(finfo)
+            if len(finfo.children) > 0:
+                all_field_info_objects += finfo.children
+
+        for field_info in all_field_info_objects:
             #print('field_info.name', field_info.name)
             vocab_list = self.vocab_lookup.get(field_info.name, None)
             #print (vocab_list)
             if vocab_list:
                 field_info.vocabinfo_list = vocab_list
+
         print (self.vocab_lookup.keys())
 
     def process_file(self):
@@ -180,10 +159,26 @@ class MetadataReader(object):
                 self.add_vocab_line(info_line)
             elif fields_found:      # In the field defn area
                 ml = MetadataLine(info_line)
-                self.field_info_list.append(ml)
+                if ml.parent:   # this is subfield
+                    self.add_child_to_existing_field(ml)
+                else:
+                    self.field_info_list.append(ml)
             elif metadata_block_found:  # In the block header area
                 self.add_block_level_info(info_line)
 
+
+    def add_child_to_existing_field(self, metadata_line):
+        assert isinstance(metadata_line, MetadataLine),\
+            "metadata_line must be a MetadataLine object"
+
+        # Iterate through the existing fields to find the parent
+        #
+        for field_info in self.field_info_list:
+            if field_info.name == metadata_line.parent:
+                field_info.children.append(metadata_line)
+                return
+
+        msgx('Parent not found!  Looking for: %s' % metadata_line.parent)
 
 if __name__ == '__main__':
     test_lines = """#metadataBlock	name	dataverseAlias	displayName
@@ -198,6 +193,7 @@ if __name__ == '__main__':
 	otherIdValue	Identifier	Other identifier that corresponds to this Dataset.		text	5	#VALUE	FALSE	FALSE	FALSE	FALSE	FALSE	FALSE	otherId	citation
 	author	Author	The person(s), corporate body(ies), or agency(ies) responsible for creating the work.		none	6		FALSE	FALSE	TRUE	FALSE	TRUE	FALSE		citation""".split('\n')
 
+
     tsv_dir = 'tsv_files'
     fnames = [ (x, join(tsv_dir, x)) for x in os.listdir(tsv_dir) if x.endswith('.tsv')]
     fnames = [ x for x in fnames if isfile(x[1])]
@@ -205,12 +201,13 @@ if __name__ == '__main__':
         mr = MetadataReader(tsv_fullname)
         mr.read_metadata()
         mr.show()
-
+    """
     tsv_name = 'tsv_files/citation.tsv'
-    #tsv_name = 'tsv_files/biomedical.tsv'
+    tsv_name = 'tsv_files/biomedical.tsv'
     mr = MetadataReader(tsv_name)
     mr.read_metadata()
     mr.show()
+    """
     """
     for test_line in test_lines:
         ml = MetadataLine(test_line)

@@ -7,10 +7,11 @@
                 "No", 
                 "Yes"
             ], 
-            "propertyOrder": "0", 
             "description": "Select from the list of options.", 
             "title": "Are the original data publicly available?", 
             "required": false, 
+            "propertyOrder": "0", 
+            "display_format": null, 
             "type": "string"
         }, 
         "PSRI2": {
@@ -19,35 +20,39 @@
                 "Yes", 
                 "NA"
             ], 
-            "propertyOrder": "1", 
             "description": "Select from the list of options.", 
             "title": "Is the original code available?", 
             "required": false, 
+            "propertyOrder": "1", 
+            "display_format": null, 
             "type": "string"
         }, 
         "PSRI3": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "2", 
             "description": "Answer if the data are publicly available.", 
-            "title": "Where are the original data archived (name and url)?"
+            "title": "Where are the original data archived (name and url)?", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "PSRI4": {
-            "type": "string", 
-            "required": false, 
             "propertyOrder": "3", 
             "description": "Answer if the code is publicly available.", 
-            "title": "Where is the original code publicly archived (name and url)?"
+            "title": "Where is the original code publicly archived (name and url)?", 
+            "display_format": null, 
+            "required": false, 
+            "type": "string"
         }, 
         "PSRI5": {
             "enum": [
                 "No", 
                 "Yes"
             ], 
-            "propertyOrder": "4", 
             "description": "Select from the list of options.", 
             "title": "Will you submit your replication code to this Dataverse (This is a PSRI requirement)?", 
             "required": false, 
+            "propertyOrder": "4", 
+            "display_format": null, 
             "type": "string"
         }, 
         "PSRI6": {
@@ -55,10 +60,11 @@
                 "No", 
                 "Yes"
             ], 
-            "propertyOrder": "5", 
             "description": "Select from the list of options.", 
             "title": "Will you submit your replication write-up to this Dataverse (This is a PSRI requirement)?", 
             "required": false, 
+            "propertyOrder": "5", 
+            "display_format": null, 
             "type": "string"
         }, 
         "PSRI7": {
@@ -66,10 +72,11 @@
                 "No", 
                 "Yes"
             ], 
-            "propertyOrder": "6", 
             "description": "Select from the list of options.", 
             "title": "Did you send the replication materials to the original author(s) and notify them that you'd be posting your replication on PSRI?", 
             "required": false, 
+            "propertyOrder": "6", 
+            "display_format": null, 
             "type": "string"
         }, 
         "PSRI8": {
@@ -78,10 +85,11 @@
                 "Yes", 
                 "NA"
             ], 
-            "propertyOrder": "7", 
             "description": "Select from the list of options.", 
             "title": "Was the replication done in a course? (If so, please continue to answer the subsequent questions, and if not, select N/A)", 
             "required": false, 
+            "propertyOrder": "7", 
+            "display_format": null, 
             "type": "string"
         }, 
         "PSRI9": {
@@ -90,10 +98,11 @@
                 "No", 
                 "Yes"
             ], 
-            "propertyOrder": "8", 
             "description": "Select from the list of options.", 
             "title": "Did another student attempt to replicate the replication in the class?", 
             "required": false, 
+            "propertyOrder": "8", 
+            "display_format": null, 
             "type": "string"
         }, 
         "PSRI10": {
@@ -102,10 +111,11 @@
                 "No", 
                 "Yes"
             ], 
-            "propertyOrder": "9", 
             "description": "Select from the list of options.", 
             "title": "Did another student replicate this replication successfully?", 
             "required": false, 
+            "propertyOrder": "9", 
+            "display_format": null, 
             "type": "string"
         }, 
         "PSRI11": {
@@ -114,10 +124,11 @@
                 "No", 
                 "Yes"
             ], 
-            "propertyOrder": "10", 
             "description": "Select from the list of options.", 
             "title": "Did a professor read/review a draft before the final version?", 
             "required": false, 
+            "propertyOrder": "10", 
+            "display_format": null, 
             "type": "string"
         }
     }
