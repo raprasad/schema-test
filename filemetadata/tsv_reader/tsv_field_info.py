@@ -120,15 +120,15 @@ allowmultiples
         val_dict['controlled_vocabulary'] =  self.get_vocab_values(as_list=True)
 
         if self.allowmultiples:
-            prop_dict = dict(title=self.title,\
+            prop_dict = OrderedDict(title=self.title,\
                         format="table",\
                         type="array",\
                         uniqueItems=True,\
                         description=self.description,\
-                        items=dict(
+                        items=OrderedDict(
                             type="object",\
                             title=self.title,
-                                properties=dict(type=dict(title=self.title,\
+                                properties=OrderedDict(type=OrderedDict(title=self.title,\
                                     #description=self.description,\
                                     propertyOrder=self.displayOrder,\
                                     required=self.required),\
