@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from os.path import dirname, realpath, join, isfile, isdir, basename
+from collections import OrderedDict
 import os
 import json
 
@@ -62,7 +63,10 @@ def view_json_form(request):
         schema_content = get_json_schema(request.GET['schema'])
 
         if schema_content:
-            schema_dict = json.loads(schema_content)
+            #context['schema_content'] = schema_content
+            #
+            schema_dict = json.loads(schema_content,\
+                        object_pairs_hook=OrderedDict)
             context['schema_content'] = json.dumps(schema_dict)
 
     #context = {}#'latest_question_list': latest_question_list}
