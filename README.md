@@ -15,3 +15,5 @@ python manage.py runserver # to run a differnt port, e.g. 8070; python manage.py
 
 You should see something like:
 
+![editor example](https://raw.githubusercontent.com/raprasad/schema-test/master/JSON_Editor_Example.png)
+
