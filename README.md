@@ -1,6 +1,11 @@
 # schema-test
-quick test
-
+quick test. A mix of:
+  - JSON schema editor
+    - http://jeremydorn.com/json-editor/
+    - https://github.com/jdorn/json-editor
+  - TSV from Dataverse
+    - https://github.com/IQSS/dataverse/tree/develop/scripts/api/data/metadatablocks
+  
 ```
 mkvirtualenv schema-test
 pip install -r requirements.txt
