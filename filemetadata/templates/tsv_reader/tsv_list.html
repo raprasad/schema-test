@@ -27,24 +27,54 @@
 
     <div class="container" style="padding:40px;">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="panel panel-default">
-                    <div class="panel-heading">TSV files converted to JSON schemas</div>
+                    <div class="panel-heading"><b>Proof of Concept for File Level Metadata <br /> Dataverse TSV files converted to JSON schemas</b></div>
                     <div class="panel-body">
+                        <p>
+                            <a href="{% url 'view_make_all_json_schemas' %}" class="btn-sm btn-info">Create JSON Schemas for all TSVs</a> (This will overwrite existing schemas)
+                            <br />&nbsp;
+                        </p>
                         <table class="table table-bordered">
                             <thead>
-                                <th>file name</th>
-                                <th>show in editor</th>
+                                <th>TSV file name</th>
+                                <th>Associated JSON schema</th>
+                                <th>Show schema in editor</th>
                             </thead>
-                            {% for file_info in json_files %}
                             <tbody>
+                            {% for file_info in json_files %}
                                 <tr>
                                     <td>{{ file_info.0 }}</td>
-                                    <td><a href="{% url 'view_json_form' %}?schema={{ file_info.0 }}">{{ file_info.0 }}</a></td>
+                                    <td>{% if file_info.1 %}
+                                            {{ file_info.1}}
+                                        {% else %}
+                                            <a href="{% url 'view_make_json_schema' %}?tsv={{ file_info.0 }}" class="btn-sm btn-info">Create JSON schema</a>
+                                    {% endif %}</td>
+                                    <td>{% if file_info.1 %}<a class="btn-sm btn-success" href="{% url 'view_json_form' %}?schema={{ file_info.1 }}">{{ file_info.1 }}</a>
+                                        {% else %}(n/a)
+                                    {% endif %}</td>
                                 </tr>
-                            </tbody>
+                            {% empty %}
+                                <tr>
+                                    <td colspan="2">Sorry! There are no JSON files in
+                                        <code>{{ JSON_SCHEMA_DIR }}</code></td>
                             {% endfor %}
+                            </tbody>
                         </table>
+                        <p>
+                            <a href="{% url 'view_delete_all_json_schemas' %}" class="btn-sm btn-danger">Delete all JSON Schemas</a>
+                            <br />&nbsp;
+                        </p>
+                        <hr />
+                        <hr />
+                            <ul>
+                                <li>TSV directory:
+                                    <code>{{ TSV_FILE_DIR }}</code></li>
+                               <li>JSON schema directory:
+                                   <code>{{ JSON_SCHEMA_DIR }}</code></li>
+                                <li>Dataverse TSVs on github: <a href="https://github.com/IQSS/dataverse/tree/develop/scripts/api/data/metadatablocks">https://github.com/IQSS/dataverse/tree/develop/scripts/api/data/metadatablocks</a></li>
+                            </ul>
+
                     </div>
                 </div>
             </div>

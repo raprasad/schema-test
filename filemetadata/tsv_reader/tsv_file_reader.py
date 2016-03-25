@@ -3,7 +3,7 @@ Read in Dataverse TSV files
     Examples: https://github.com/IQSS/dataverse/tree/develop/scripts/api/data/metadatablocks
 """
 import sys
-from os.path import isfile, isdir, join
+from os.path import isfile, isdir, join, basename
 import os
 from tsv_field_info import MetadataLine
 from vocab_info import VocabInfo
@@ -11,6 +11,7 @@ from static_values import DELIMITER
 from utils import FormatHelper
 import json
 from collections import OrderedDict
+from static_values import TSV_FILE_DIR, JSON_SCHEMA_DIR
 
 def msg(m): print m
 def dashes(): msg('-' * 40)
@@ -45,7 +46,7 @@ class MetadataReader(object):
         self.vocab_lookup.setdefault(vocab_info.field, []).append(vocab_info)
 
 
-    def show(self, as_json_schema=True):
+    def create_schema_file(self, as_json_schema=True):
 
         # Gather field info
         #
@@ -65,26 +66,14 @@ class MetadataReader(object):
         block_information['properties'] = field_ordered_dict
         print json.dumps(block_information, indent=4)
 
-        json_fname = 'json_schemas/%s.json' % self.name
+        json_fname = join(JSON_SCHEMA_DIR, basename(self.fname).replace('.tsv', '.json'))
         json_schema_string = json.dumps(block_information, indent=4)
-        open(json_fname, 'w').write(json_schema_string)
+        fh = open(json_fname, 'w')
+        fh.write(json_schema_string)
+        fh.close()
         msg('file written: %s' % json_fname)
 
-        #block_information['name'] = self.name
-        #block_information['dataverse_alias'] = self.dataverse_alias
-        #block_information['display_name'] = self.display_name
-
-        """
-        block_dict = dict(block_information=block_information,\
-                title=self.name,\
-                type='object',\
-                properties=field_list\
-                )
-
-        block_dict_ordered = OrderedDict(sorted(block_dict.items(), key=lambda t: t[0]))
-
-        print json.dumps(block_dict_ordered, indent=4)
-        """
+        return True
 
     def add_block_level_info(self, info_line):
         block_level_attrs = [None, 'name', 'dataverse_alias', 'display_name']
@@ -181,21 +170,10 @@ class MetadataReader(object):
         msgx('Parent not found!  Looking for: %s' % metadata_line.parent)
 
 if __name__ == '__main__':
-    test_lines = """#metadataBlock	name	dataverseAlias	displayName
-	citation		Citation Metadata""".split('\n')
-    """
-    allowControlledVocabulary	allowmultiples	facetable	showabovefold	required	parent	metadatablock_id
-	title	Title	Full title by which the Dataset is known.	Enter title...	text	0		TRUE	FALSE	FALSE	FALSE	TRUE	TRUE		citation
-	subtitle	Subtitle	A secondary title used to amplify or state certain limitations on the main title.		text	1		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE		citation
-	alternativeTitle	Alternative Title	A title by which the work is commonly referred, or an abbreviation of the title.		text	2		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE		citation
-	otherId	Other ID	Another unique identifier that identifies this Dataset (e.g., producer's or another repository's number).		none	3	:	FALSE	FALSE	TRUE	FALSE	FALSE	FALSE		citation
-	otherIdAgency	Agency	Name of agency which generated this identifier.		text	4	#VALUE	FALSE	FALSE	FALSE	FALSE	FALSE	FALSE	otherId	citation
-	otherIdValue	Identifier	Other identifier that corresponds to this Dataset.		text	5	#VALUE	FALSE	FALSE	FALSE	FALSE	FALSE	FALSE	otherId	citation
-	author	Author	The person(s), corporate body(ies), or agency(ies) responsible for creating the work.		none	6		FALSE	FALSE	TRUE	FALSE	TRUE	FALSE		citation""".split('\n')
 
-
-    tsv_dir = 'tsv_files'
-    fnames = [ (x, join(tsv_dir, x)) for x in os.listdir(tsv_dir) if x.endswith('.tsv')]
+    # Output all of the TSV files as JSON schemas
+    tsv_dir = TSV_FILE_DIR
+    fnames = [ (x, join(TSV_FILE_DIR, x)) for x in os.listdir(TSV_FILE_DIR) if x.endswith('.tsv')]
     fnames = [ x for x in fnames if isfile(x[1])]
     for tsv_fname, tsv_fullname in fnames:
         mr = MetadataReader(tsv_fullname)
@@ -206,11 +184,11 @@ if __name__ == '__main__':
     tsv_name = 'tsv_files/biomedical.tsv'
     mr = MetadataReader(tsv_name)
     mr.read_metadata()
-    mr.show()
+    mr.create_schema_file()
     """
     """
     for test_line in test_lines:
         ml = MetadataLine(test_line)
         ml.as_json()
-        ml.show()
+        ml.create_schema_file()
     """
